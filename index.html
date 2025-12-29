@@ -1,22 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <title>Egyszerű honlap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funday 2025</title>
+  <meta name="description" content="Funday 2025 – fix program, étel/ital/szórakozás opciók, My Maps." />
   <style>
-    body { font-family: Arial, sans-serif; background:#f4f4f4; }
-    .box {
-      max-width:600px; margin:100px auto;
-      background:#fff; padding:30px;
-      border-radius:8px;
+    :root {
+      --bg:#f6f7fb; --card:#fff; --text:#111; --muted:#666; --line:#e7e9f0;
+      --shadow: 0 10px 26px rgba(0,0,0,.06);
     }
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+    .wrap{max-width:1040px;margin:28px auto;padding:0 16px 64px;}
+    header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;}
+    h1{margin:0;font-size:34px;letter-spacing:-.4px;}
+    .sub{color:var(--muted);font-size:14px;margin-top:6px;}
+    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted);background:#fff;}
+    .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-top:16px;}
+    @media (max-width: 920px){.grid{grid-template-columns:1fr;}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);}
+    .card h2{margin:0 0 10px;font-size:18px;}
+    .note{color:var(--muted);font-size:13px;line-height:1.45;margin-top:6px;}
+    table{width:100%;border-collapse:collapse;}
+    th,td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+    th{text-align:left;font-size:12px;color:var(--muted);font-weight:600;}
+    .time{white-space:nowrap;font-variant-numeric:tabular-nums;}
+    .title{font-weight:650;}
+    .addr a{text-decoration:underline;color:inherit;}
+    .section{margin-top:16px;}
+    .opt-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px;}
+    .opt{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;justify-content:space-between;gap:12px;align-items:center;}
+    .opt-title{font-weight:650;}
+    .btn{display:inline-block;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;text-decoration:none;font-size:14px;color:inherit;}
+    .btn:hover{box-shadow:0 8px 18px rgba(0,0,0,.06);}
+    iframe{width:100%;border:0;border-radius:12px;min-height:460px;background:#eee;}
+    .people{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;}
+    .people li{border:1px solid var(--line);background:#fff;padding:8px 10px;border-radius:12px;font-size:13px;}
+    footer{margin-top:18px;color:var(--muted);font-size:12px;}
+    .small{font-size:12px;color:var(--muted);}
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Működik.</h1>
-    <p>Ez az oldal él.</p>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Funday 2025</h1>
+        <div class="sub">2025. december 30. • Budapest</div>
+        <div class="pills">
+          <span class="pill">Fix program</span>
+          <span class="pill">Étel / Ital / Szórakozás opciók</span>
+          <span class="pill">My Maps</span>
+        </div>
+      </div>
+      <div class="sub">Frissítve: 2025-12-29 09:40</div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <h2>Fix program</h2>
+        <div class="note">A címek kattinthatók (Google Maps). A lézerharcnál: <b>PONTOSAN KELL ÉRKEZNI</b>.</div>
+        <table>
+          <thead>
+            <tr>
+              <th class="time">Idő</th>
+              <th>Program</th>
+              <th>Cím / Maps</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr>
+        <td class="time">09:45–11:45</td>
+        <td class="title">Dagály Fürdő</td>
+        <td class="addr"><a href="https://www.google.com/maps/search/?api=1&query=Dagály+Termál,+Strandfürdő+és+Uszoda,+1138+Budapest,+Népfürdő+utca+36" target="_blank" rel="noopener">1138 Budapest, Népfürdő utca 36</a></td>
+      </tr>
+    
+      <tr>
+        <td class="time">12:00–12:30</td>
+        <td class="title">Gyülekezés (Bázis)<div class="note">Hűtőt előre feltöltöm.</div></td>
+        <td class="addr"><a href="https://www.google.com/maps?q=47.5163815,19.0556712" target="_blank" rel="noopener">1136 Budapest, Hegedűs Gyula utca 37</a></td>
+      </tr>
+    
+      <tr>
+        <td class="time">12:45–14:00</td>
+        <td class="title">PONTOSAN KELL ÉRKEZNI! – Lézerharc<div class="note">Web: lasergame.hu</div></td>
+        <td class="addr"><a href="https://www.google.com/maps?q=47.5170402,19.0576954" target="_blank" rel="noopener">1136 Budapest, Hegedűs Gyula utca 16</a></td>
+      </tr>
+    
+      <tr>
+        <td class="time">14:00–16:00</td>
+        <td class="title">Evés, pihenés, feltöltés<div class="note">Étel opciók lent.</div></td>
+        <td class="addr">—</td>
+      </tr>
+    
+      <tr>
+        <td class="time">16:30–17:30</td>
+        <td class="title">Szabadulás (MystiqueRoom)</td>
+        <td class="addr"><a href="https://www.google.com/maps?q=47.5076953,19.0577272" target="_blank" rel="noopener">1055 Budapest, Szent István krt. 9</a></td>
+      </tr>
+    
+      <tr>
+        <td class="time">17:30–</td>
+        <td class="title">Házibuli / extra programok<div class="note">Koktél / biliárd / flipper / arcade opciók lent.</div></td>
+        <td class="addr">—</td>
+      </tr>
+    
+          </tbody>
+        </table>
+
+        <div class="section">
+          <h2>Étel opciók</h2>
+          <ul class="opt-list">
+            <li class="opt">
+      <div class="opt-title">Csevapivo | Kafana Balkan Grill &amp; Beer</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5148038,19.0505965" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Firkász Restaurant</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5150684,19.0515163" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Sir Lancelot Medieval Restaurant</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.508183,19.056732" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Ital opciók</h2>
+          <ul class="opt-list">
+            <li class="opt">
+      <div class="opt-title">PIVO söröző és sörbolt</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5151446,19.0543548" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Különleges Sörök Boltja</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5165451,19.0553403" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Tóth kocsma</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5168189,19.0578802" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Sherlock Holmes Pub</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.4991725,19.0612026" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Szórakozás opciók</h2>
+          <div class="note">Ezek tippelt besorolások a My Maps pontok alapján – szólsz, ha átrakjuk.</div>
+          <ul class="opt-list">
+            <li class="opt">
+      <div class="opt-title">Atlantis Bisztró &amp; Biliárd</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5146767,19.0488833" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Game Up! 2</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5079834,19.0612585" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Flippermúzeum</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.4980082,19.0612471" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">GAME OVER Escape Rooms Budapest</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5178799,19.0566426" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Metagame Klub</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5159584,19.0577675" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">Star Park parkoló</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5128356,19.0522809" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li><li class="opt">
+      <div class="opt-title">MystIQueRoom 2</div>
+      <div class="opt-actions">
+        <a class="btn" href="https://www.google.com/maps?q=47.5074302,19.0566404" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Résztvevők (becenevek)</h2>
+          <ul class="people">
+            <li>A Művész (festmény-vibe)</li><li>A Túratérkép (mindig tud egy jobb útvonalat)</li><li>A Panoráma (prospektus-póz)</li><li>A Gondolkodó (naplementés filozófus)</li><li>A CEO (terasz-király)</li><li>A Corporate Ninja (eltűnik, amikor kell)</li><li>A LinkedIn Legend (üzleti portré-mágus)</li><li>A Nagy Testvér (főnöknek hiszi magát)</li><li>A Kis Testvér (ritkán szól, de pontos)</li>
+          </ul>
+          <div class="small">Megjegyzés: a becenevek csak poén, a képek “hangulata” alapján.</div>
+        </div>
+
+        <footer>
+          Ha a böngésző néha „Nem biztonságos”-at ír, az a HTTPS tanúsítvány kiadásáig normális GitHub Pages-en.
+        </footer>
+      </main>
+
+      <aside class="card">
+        <h2>Térkép (Google My Maps)</h2>
+        <div class="note">Beágyazva. Nagyítás / mozgatás oké.</div>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sZZ5WNlHb67dBlpS7i1_BomMwPy7R6c&ehbc=2E312F" width="640" height="480"></iframe>
+        <div style="margin-top:10px;">
+          <a class="btn" href="https://www.google.com/maps/d/view?mid=1sZZ5WNlHb67dBlpS7i1_BomMwPy7R6c" target="_blank" rel="noopener">Térkép megnyitása külön</a>
+        </div>
+        <div class="note">Ha kérsz, ebből csinálok “egyoldalas” mobilos változatot is (minden egy helyen, görgetős).</div>
+      </aside>
+    </div>
   </div>
 </body>
 </html>
