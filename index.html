@@ -18,6 +18,7 @@
       --shadow: 0 18px 44px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth;}
     body{
       margin:0;
       color:var(--text);
@@ -42,7 +43,9 @@
       color:transparent;
     }
     .sub{margin-top:10px;color:var(--muted);font-size:14px;}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+    .nav{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;
+    }
     .btn{
       display:inline-flex;align-items:center;gap:10px;
       padding:10px 12px;border-radius:14px;
@@ -99,27 +102,34 @@
     @media (max-width: 720px){.people{grid-template-columns:repeat(2,minmax(0,1fr));}}
     .p{border:1px solid rgba(255,255,255,.12);border-radius:18px;background: rgba(0,0,0,.18);overflow:hidden;}
     .p img{width:100%;height:180px;object-fit:cover;display:block;}
-    .p-cap{padding:10px 12px;font-weight:1000;letter-spacing:.2px;}
+    .p-cap{padding:10px 12px 6px;font-weight:1000;letter-spacing:.2px;}
+    .p-desc{padding:0 12px 12px;color:var(--muted);font-size:13px;line-height:1.35;}
     iframe{width:100%;border:0;border-radius:16px;min-height:520px;background:#111;}
+    .footer{margin-top:18px;display:flex;justify-content:flex-end}
+    .top{text-decoration:none}
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap" id="top">
     <div class="hero">
       <div>
         <h1>Funday 2025</h1>
         <div class="sub">2025. december 30.</div>
-        <div class="cta">
+        <div class="nav">
           <a class="btn spotify" href="https://open.spotify.com/track/4ctMpZmh8GD9tAEQXaKKF0" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" href="#program">Program</a>
+          <a class="btn" href="#fix">Fix program</a>
+          <a class="btn" href="#etel">Étel</a>
+          <a class="btn" href="#ital">Ital</a>
+          <a class="btn" href="#szorakozas">Szórakozás</a>
+          <a class="btn" href="#resztvevok">Résztvevők</a>
           <a class="btn" href="#terkep">Térkép</a>
         </div>
       </div>
     </div>
 
     <div class="grid">
-      <main class="panel" id="program">
-        <div class="h2"><span class="bar"></span>Fix program</div>
+      <main class="panel">
+        <div class="h2" id="fix"><span class="bar"></span>Fix program</div>
         
       <div class="ticket">
         <div class="t-left">
@@ -188,7 +198,7 @@
       </div>
     
 
-        <div class="h2" style="margin-top:18px;"><span class="bar"></span>Étel</div>
+        <div class="h2" id="etel" style="margin-top:18px;"><span class="bar"></span>Étel</div>
         <div class="cards">
           
       <div class="card2">
@@ -208,7 +218,7 @@
     
         </div>
 
-        <div class="h2" style="margin-top:18px;"><span class="bar"></span>Ital</div>
+        <div class="h2" id="ital" style="margin-top:18px;"><span class="bar"></span>Ital</div>
         <div class="cards">
           
       <div class="card2">
@@ -233,7 +243,7 @@
     
         </div>
 
-        <div class="h2" style="margin-top:18px;"><span class="bar"></span>Szórakozás</div>
+        <div class="h2" id="szorakozas" style="margin-top:18px;"><span class="bar"></span>Szórakozás</div>
         <div class="cards">
           
       <div class="card2">
@@ -268,60 +278,76 @@
     
         </div>
 
-        <div class="h2" style="margin-top:18px;"><span class="bar"></span>Résztvevők</div>
+        <div class="h2" id="resztvevok" style="margin-top:18px;"><span class="bar"></span>Résztvevők</div>
         <div class="people">
           
       <div class="p">
         <img src="funday_img_01.jpg" alt="A Művész" loading="lazy">
         <div class="p-cap">A Művész</div>
+        <div class="p-desc">Mindig elmagyaráz valamit, amit senki nem kérdezett.</div>
       </div>
     
       <div class="p">
         <img src="funday_img_02.jpg" alt="A Túratérkép" loading="lazy">
         <div class="p-cap">A Túratérkép</div>
+        <div class="p-desc">Mindig tud egy jobb útvonalat – még akkor is, ha már ott vagytok.</div>
       </div>
     
       <div class="p">
         <img src="funday_img_03.jpg" alt="A Panoráma" loading="lazy">
         <div class="p-cap">A Panoráma</div>
+        <div class="p-desc">Fotó + póz, mintha prospektus lenne. Egy katt – és kész a borítókép.</div>
       </div>
     
       <div class="p">
         <img src="funday_img_04.jpg" alt="A Gondolkodó" loading="lazy">
         <div class="p-cap">A Gondolkodó</div>
+        <div class="p-desc">3 sör után életvezetési tanácsok. Meglepően pontos.</div>
       </div>
     
       <div class="p">
         <img src="funday_img_05.jpg" alt="A CEO" loading="lazy">
         <div class="p-cap">A CEO</div>
+        <div class="p-desc">Ő intézné… de végül valahogy mégsem ő intézi.</div>
       </div>
     
       <div class="p">
         <img src="funday_img_06.jpg" alt="A Corporate Ninja" loading="lazy">
         <div class="p-cap">A Corporate Ninja</div>
+        <div class="p-desc">Pontosan tudja, mikor kell eltűnni. És mikor kell visszajönni.</div>
       </div>
     
       <div class="p">
         <img src="funday_img_07.jpg" alt="A LinkedIn Legend" loading="lazy">
         <div class="p-cap">A LinkedIn Legend</div>
+        <div class="p-desc">„Régen minden jobb volt” – majd 2 perccel később: „Na jó, ez most elég jó.”</div>
       </div>
     
       <div class="p">
         <img src="funday_img_08.jpg" alt="A Nagy Testvér" loading="lazy">
         <div class="p-cap">A Nagy Testvér</div>
+        <div class="p-desc">Hangosabb, határozottabb, szervezőnek hiszi magát.</div>
       </div>
     
       <div class="p">
         <img src="funday_img_09.jpg" alt="A Kis Testvér" loading="lazy">
         <div class="p-cap">A Kis Testvér</div>
+        <div class="p-desc">Ritkán szól, de amikor igen, akkor ül a poén.</div>
       </div>
     
+        </div>
+
+        <div class="footer">
+          <a class="btn top" href="#top">↑ Vissza a tetejére</a>
         </div>
       </main>
 
       <aside class="panel" id="terkep">
         <div class="h2"><span class="bar"></span>Térkép</div>
         <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sZZ5WNlHb67dBlpS7i1_BomMwPy7R6c&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Funday 2025 térkép"></iframe>
+        <div class="footer">
+          <a class="btn top" href="#top">↑ Vissza a tetejére</a>
+        </div>
       </aside>
     </div>
   </div>
