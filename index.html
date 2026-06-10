@@ -1,356 +1,872 @@
 <!doctype html>
 <html lang="hu">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Funday 2025</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funday.hu – Tirana 2026</title>
+  <meta name="description" content="Funday Tirana 2026 – térkép, járatok, crew és az albán WTF-faktor.">
+  <meta name="theme-color" content="#0d1320">
   <style>
-    :root {
-      --bg:#070810;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.08);
-      --line: rgba(255,255,255,.14);
-      --text:#f4f6ff;
-      --muted: rgba(244,246,255,.75);
-      --a1:#ff2bd6;
-      --a2:#00f5ff;
-      --a3:#b8ff00;
-      --shadow: 0 18px 44px rgba(0,0,0,.45);
+    :root{
+      --bg:#0b1020;
+      --bg2:#121a2c;
+      --card:rgba(255,255,255,0.08);
+      --card-strong:rgba(255,255,255,0.12);
+      --text:#f7f9ff;
+      --muted:#a9b3c9;
+      --line:rgba(255,255,255,0.12);
+      --accent:#67e8f9;
+      --accent2:#a78bfa;
+      --accent3:#f59e0b;
+      --ok:#34d399;
+      --danger:#fb7185;
+      --shadow:0 18px 60px rgba(0,0,0,.30);
+      --radius:24px;
+      --radius-sm:16px;
+      --max:1180px;
     }
+
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(1200px 800px at 12% 12%, rgba(255,43,214,.18), transparent 60%),
-        radial-gradient(900px 700px at 88% 20%, rgba(0,245,255,.14), transparent 55%),
-        radial-gradient(800px 700px at 40% 92%, rgba(184,255,0,.10), transparent 55%),
-        linear-gradient(180deg, #050612, #0b1233);
-      overflow-x:hidden;
+        radial-gradient(circle at 10% 10%, rgba(103,232,249,.14), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(167,139,250,.18), transparent 35%),
+        radial-gradient(circle at 30% 100%, rgba(245,158,11,.10), transparent 30%),
+        linear-gradient(180deg, #0a0f1e 0%, #0e1628 100%);
+      min-height:100vh;
     }
-    .wrap{max-width:1120px;margin:26px auto;padding:0 16px 64px;}
-    .hero{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-end;}
-    h1{
-      margin:0;
-      font-size:46px;
-      letter-spacing:-.8px;
-      line-height:1;
-      background: linear-gradient(90deg, var(--a2), var(--a1), var(--a3));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(var(--max), calc(100% - 28px)); margin:0 auto}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
     }
-    .sub{margin-top:10px;color:var(--muted);font-size:14px;}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(16px);
+      background:rgba(11,16,32,.68);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
     .nav{
-      display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      min-height:72px;
     }
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.22);
-      color:var(--text);
-      text-decoration:none;
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:-.03em;
+      font-size:24px;
+    }
+
+    .brand-badge{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:var(--shadow);
+    }
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .nav-links a{
+      color:var(--muted);
       font-weight:800;
-      box-shadow: var(--shadow);
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:12px;
     }
-    .btn:hover{box-shadow:0 0 0 3px rgba(0,245,255,.10), var(--shadow);}
-    .btn.spotify{background:#1db954;color:#08110a;border-color: rgba(255,255,255,.0);}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:18px;}
-    @media (max-width: 980px){.grid{grid-template-columns:1fr;}}
-    .panel{
-      background: linear-gradient(180deg, var(--panel2), var(--panel));
+
+    .nav-links a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+    }
+
+    .hero{
+      padding:56px 0 34px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .hero-card, .glass, .flight-card, .crew-card, .map-card, .wtf-card, .cta-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
       border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
-    .h2{display:flex;align-items:center;gap:12px;margin:0 0 12px;font-size:18px;}
-    .bar{height:10px;width:44px;border-radius:999px;background: linear-gradient(90deg, var(--a2), var(--a1));}
-    .ticket{
-      display:flex;justify-content:space-between;gap:14px;align-items:flex-start;
-      padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:16px;
-      background: rgba(0,0,0,.18);
+
+    .hero-card{
+      padding:34px;
+      min-height:430px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:auto -60px -60px auto;
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(103,232,249,.18), transparent 68%);
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:14px;
+      font-weight:900;
+      color:#d7def0;
+      margin-bottom:18px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--ok);
+      box-shadow:0 0 0 6px rgba(52,211,153,.12);
+    }
+
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(40px, 8vw, 86px);
+      line-height:.92;
+      letter-spacing:-.06em;
+    }
+
+    .lead{
+      margin:0;
+      max-width:740px;
+      color:var(--muted);
+      font-size:clamp(18px, 2vw, 22px);
+      line-height:1.5;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 18px;
+      border-radius:14px;
+      font-weight:900;
+      border:1px solid var(--line);
+      transition:.18s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      color:#08111e;
+      border:0;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+    }
+
+    .btn-secondary{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+    }
+
+    .hero-side{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:22px;
+    }
+
+    .glass{
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .mini-title{
+      margin:0 0 10px;
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#c6d0e4;
+      font-weight:900;
+    }
+
+    .stat{
+      font-size:34px;
+      font-weight:900;
+      letter-spacing:-.05em;
+      margin:0 0 10px;
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.55;
+      margin:0;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .chip{
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      color:#eef3ff;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    section{
+      padding:18px 0 26px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(28px, 4vw, 42px);
+      letter-spacing:-.05em;
+    }
+
+    .section-head p{
+      margin:8px 0 0;
+      color:var(--muted);
+      max-width:760px;
+      line-height:1.55;
+    }
+
+    .map-card{
+      overflow:hidden;
+      padding:14px;
+    }
+
+    .map-shell{
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      min-height:580px;
+      background:#09101d;
+    }
+
+    .map-shell iframe{
+      display:block;
+      width:100%;
+      height:580px;
+      border:0;
+    }
+
+    .map-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 8px 2px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .flight-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+    }
+
+    .flight-card{
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .flight-card.alt{
+      background:linear-gradient(180deg, rgba(245,158,11,.14), rgba(255,255,255,.05));
+    }
+
+    .flight-card.main{
+      background:linear-gradient(180deg, rgba(103,232,249,.14), rgba(255,255,255,.05));
+    }
+
+    .flight-card.return{
+      background:linear-gradient(180deg, rgba(167,139,250,.14), rgba(255,255,255,.05));
+    }
+
+    .flight-label{
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid var(--line);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:14px;
+    }
+
+    .route{
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:-.04em;
+      margin:0 0 6px;
+    }
+
+    .time{
+      font-size:42px;
+      font-weight:900;
+      letter-spacing:-.06em;
+      margin:0 0 8px;
+    }
+
+    .meta{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15px;
+    }
+
+    .crew-card{
+      padding:22px;
+    }
+
+    .crew-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .crew-pill{
+      padding:12px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid var(--line);
+      font-size:15px;
+      font-weight:900;
+      color:#eef4ff;
+    }
+
+    .crew-note{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .wtf-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      align-items:start;
+    }
+
+    .wtf-card{
+      padding:18px;
+      min-height:250px;
+      position:relative;
+      overflow:hidden;
+      transform-origin:center;
+    }
+
+    .wtf-card:nth-child(1){transform:rotate(-2deg)}
+    .wtf-card:nth-child(2){transform:rotate(1.4deg)}
+    .wtf-card:nth-child(3){transform:rotate(-1deg)}
+    .wtf-card:nth-child(4){transform:rotate(1.5deg)}
+    .wtf-card:nth-child(5){transform:rotate(-1.4deg)}
+    .wtf-card:nth-child(6){transform:rotate(.8deg)}
+
+    .wtf-card::before{
+      content:"100% VALÓS";
+      position:absolute;
+      top:14px;
+      right:14px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.10em;
+      color:#082114;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--ok);
+      box-shadow:0 12px 28px rgba(52,211,153,.25);
+    }
+
+    .wtf-top{
+      padding-top:38px;
+    }
+
+    .wtf-type{
+      display:inline-block;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:#d4ddf2;
       margin-bottom:10px;
     }
-    .t-time{font-weight:900;font-variant-numeric:tabular-nums;opacity:.95}
-    .t-title{font-weight:900;font-size:16px;margin-top:6px}
-    .t-addr{margin-top:6px;color:var(--muted);font-size:13px}
-    .addr{color:var(--text);text-decoration:underline;text-decoration-color:rgba(0,245,255,.45)}
-    .t-right{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:9px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      text-decoration:none;color:rgba(244,246,255,.92);
-      font-size:13px;font-weight:800;
-      white-space:nowrap;
+
+    .wtf-title{
+      margin:0 0 10px;
+      font-size:24px;
+      font-weight:900;
+      letter-spacing:-.04em;
     }
-    .ico{width:16px;height:16px;fill:rgba(244,246,255,.92)}
-    .cards{display:grid;grid-template-columns:1fr;gap:10px;}
-    .card2{
-      display:flex;justify-content:space-between;gap:12px;align-items:center;
-      padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:16px;
-      background: rgba(0,0,0,.18);
+
+    .wtf-desc{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15px;
     }
-    .card2-title{font-weight:900}
-    .people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
-    @media (max-width: 720px){.people{grid-template-columns:repeat(2,minmax(0,1fr));}}
-    .p{border:1px solid rgba(255,255,255,.12);border-radius:18px;background: rgba(0,0,0,.18);overflow:hidden;}
-    .p img{width:100%;height:180px;object-fit:cover;display:block;}
-    .p-cap{padding:10px 12px 6px;font-weight:1000;letter-spacing:.2px;}
-    .p-desc{padding:0 12px 12px;color:var(--muted);font-size:13px;line-height:1.35;}
-    iframe{width:100%;border:0;border-radius:16px;min-height:520px;background:#111;}
-    .footer{margin-top:18px;display:flex;justify-content:flex-end}
-    .top{text-decoration:none}
+
+    .wtf-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .wtf-tag{
+      font-size:12px;
+      font-weight:800;
+      color:#f4f7ff;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 9px;
+    }
+
+    .cta-card{
+      padding:26px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-top:10px;
+    }
+
+    .cta-card h3{
+      margin:0 0 8px;
+      font-size:28px;
+      letter-spacing:-.04em;
+    }
+
+    .cta-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+    }
+
+    footer{
+      padding:30px 0 40px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-line{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:18px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 1024px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-side{grid-template-rows:auto}
+      .flight-grid{grid-template-columns:1fr}
+      .wtf-grid{grid-template-columns:1fr 1fr}
+      .map-shell,
+      .map-shell iframe{height:500px; min-height:500px}
+    }
+
+    @media (max-width: 700px){
+      .nav{align-items:flex-start; padding:14px 0; flex-direction:column}
+      .nav-links{gap:6px}
+      .hero{padding-top:28px}
+      .hero-card{padding:22px; min-height:auto}
+      .glass{padding:18px}
+      .map-card{padding:10px}
+      .map-shell,
+      .map-shell iframe{height:420px; min-height:420px}
+      .wtf-grid{grid-template-columns:1fr}
+      .cta-card{flex-direction:column; align-items:flex-start}
+      h1{font-size:46px}
+      .time{font-size:34px}
+      .route{font-size:22px}
+      .cta-card h3{font-size:24px}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap" id="top">
-    <div class="hero">
-      <div>
-        <h1>Funday 2025</h1>
-        <div class="sub">2025. december 30.</div>
-        <div class="nav">
-          <a class="btn spotify" href="https://open.spotify.com/track/4ctMpZmh8GD9tAEQXaKKF0" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" href="#fix">Fix program</a>
-          <a class="btn" href="#etel">Étel</a>
-          <a class="btn" href="#ital">Ital</a>
-          <a class="btn" href="#szorakozas">Szórakozás</a>
-          <a class="btn" href="#resztvevok">Résztvevők</a>
-          <a class="btn" href="#terkep">Térkép</a>
-        </div>
-      </div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="brand-badge"></div>
+      <span>Funday.hu</span>
     </div>
-
-    <div class="grid">
-      <main class="panel">
-        <div class="h2" id="fix"><span class="bar"></span>Fix program</div>
-        
-      <div class="ticket">
-        <div class="t-left">
-          <div class="t-time">09:30–11:45</div>
-          <div class="t-title">Dagály Fürdő</div>
-          <div class="t-addr"><a class="addr" href="https://www.google.com/maps/search/?api=1&query=Dag%C3%A1ly+Term%C3%A1l%2C+Strandf%C3%BCrd%C5%91+%C3%A9s+Uszoda%2C+1138+Budapest%2C+N%C3%A9pf%C3%BCrd%C5%91+utca+36" target="_blank" rel="noopener">1138 Budapest, Népfürdő utca 36</a></div>
-        </div>
-        <div class="t-right">
-          <a class="chip" href="https://www.google.com/maps/search/?api=1&query=Dag%C3%A1ly+Term%C3%A1l%2C+Strandf%C3%BCrd%C5%91+%C3%A9s+Uszoda%2C+1138+Budapest%2C+N%C3%A9pf%C3%BCrd%C5%91+utca+36" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a><a class="chip" href="https://nsu.hu/letesitmeny/dagaly-gyogyfurdo-strandfurdo-es-uszoda-nemzeti-uszo-es-vizilabda-olimpiai-kozpont/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.8-3.8a3 3 0 0 1 4.2 4.2l-2.1 2.1a1 1 0 1 1-1.4-1.4l2.1-2.1a1 1 0 1 0-1.4-1.4l-3.8 3.8a1 1 0 0 1-1.4 0ZM13.4 10.6a1 1 0 0 1 0 1.4l-3.8 3.8a3 3 0 0 1-4.2-4.2l2.1-2.1a1 1 0 1 1 1.4 1.4l-2.1 2.1a1 1 0 1 0 1.4 1.4l3.8-3.8a1 1 0 0 1 1.4 0Z"/></svg><span>Web</span></a>
-        </div>
-      </div>
-    
-      <div class="ticket">
-        <div class="t-left">
-          <div class="t-time">12:00–12:30</div>
-          <div class="t-title">Gyülekező (Bázis) – Hűtő feltöltve</div>
-          <div class="t-addr"><a class="addr" href="https://www.google.com/maps/search/?api=1&query=1136+Budapest%2C+Heged%C5%B1s+Gyula+utca+37" target="_blank" rel="noopener">1136 Budapest, Hegedűs Gyula utca 37</a></div>
-        </div>
-        <div class="t-right">
-          <a class="chip" href="https://www.google.com/maps/search/?api=1&query=1136+Budapest%2C+Heged%C5%B1s+Gyula+utca+37" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a>
-        </div>
-      </div>
-    
-      <div class="ticket">
-        <div class="t-left">
-          <div class="t-time">12:45–14:00</div>
-          <div class="t-title">Lézerharc (LaserGame) – PONTOSAN</div>
-          <div class="t-addr"><a class="addr" href="https://www.google.com/maps/search/?api=1&query=1136+Budapest%2C+Heged%C5%B1s+Gyula+utca+16" target="_blank" rel="noopener">1136 Budapest, Hegedűs Gyula utca 16</a></div>
-        </div>
-        <div class="t-right">
-          <a class="chip" href="https://www.google.com/maps/search/?api=1&query=1136+Budapest%2C+Heged%C5%B1s+Gyula+utca+16" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a><a class="chip" href="https://www.lasergame.hu/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.8-3.8a3 3 0 0 1 4.2 4.2l-2.1 2.1a1 1 0 1 1-1.4-1.4l2.1-2.1a1 1 0 1 0-1.4-1.4l-3.8 3.8a1 1 0 0 1-1.4 0ZM13.4 10.6a1 1 0 0 1 0 1.4l-3.8 3.8a3 3 0 0 1-4.2-4.2l2.1-2.1a1 1 0 1 1 1.4 1.4l-2.1 2.1a1 1 0 1 0 1.4 1.4l3.8-3.8a1 1 0 0 1 1.4 0Z"/></svg><span>Web</span></a>
-        </div>
-      </div>
-    
-      <div class="ticket">
-        <div class="t-left">
-          <div class="t-time">14:00–16:00</div>
-          <div class="t-title">Evés / pihenés / feltöltés</div>
-          
-        </div>
-        <div class="t-right">
-          
-        </div>
-      </div>
-    
-      <div class="ticket">
-        <div class="t-left">
-          <div class="t-time">16:30–17:30</div>
-          <div class="t-title">Szabadulás (MystiqueRoom)</div>
-          <div class="t-addr"><a class="addr" href="https://www.google.com/maps/search/?api=1&query=1055+Budapest%2C+Szent+Istv%C3%A1n+k%C3%B6r%C3%BAt+9" target="_blank" rel="noopener">1055 Budapest, Szent István körút 9</a></div>
-        </div>
-        <div class="t-right">
-          <a class="chip" href="https://www.google.com/maps/search/?api=1&query=1055+Budapest%2C+Szent+Istv%C3%A1n+k%C3%B6r%C3%BAt+9" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a><a class="chip" href="https://mystiqueroom.hu/#szoba-lista" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.8-3.8a3 3 0 0 1 4.2 4.2l-2.1 2.1a1 1 0 1 1-1.4-1.4l2.1-2.1a1 1 0 1 0-1.4-1.4l-3.8 3.8a1 1 0 0 1-1.4 0ZM13.4 10.6a1 1 0 0 1 0 1.4l-3.8 3.8a3 3 0 0 1-4.2-4.2l2.1-2.1a1 1 0 1 1 1.4 1.4l-2.1 2.1a1 1 0 1 0 1.4 1.4l3.8-3.8a1 1 0 0 1 1.4 0Z"/></svg><span>Web</span></a>
-        </div>
-      </div>
-    
-      <div class="ticket">
-        <div class="t-left">
-          <div class="t-time">17:30–</div>
-          <div class="t-title">Házibuli / extra körök</div>
-          
-        </div>
-        <div class="t-right">
-          
-        </div>
-      </div>
-    
-
-        <div class="h2" id="etel" style="margin-top:18px;"><span class="bar"></span>Étel</div>
-        <div class="cards">
-          
-      <div class="card2">
-        <div class="card2-title">Csevapivo | Kafana Balkan Grill &amp; Beer</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Csevapivo+%7C+Kafana+Balkan+Grill+%26+Beer+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Firkász Restaurant</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Firk%C3%A1sz+Restaurant+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Sir Lancelot Medieval Restaurant</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Sir+Lancelot+Medieval+Restaurant+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-        </div>
-
-        <div class="h2" id="ital" style="margin-top:18px;"><span class="bar"></span>Ital</div>
-        <div class="cards">
-          
-      <div class="card2">
-        <div class="card2-title">PIVO söröző és sörbolt</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=PIVO+s%C3%B6r%C3%B6z%C5%91+%C3%A9s+s%C3%B6rbolt+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Különleges Sörök Boltja</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=K%C3%BCl%C3%B6nleges+S%C3%B6r%C3%B6k+Boltja+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Tóth kocsma</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=T%C3%B3th+kocsma+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Sherlock Holmes Pub</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Sherlock+Holmes+Pub+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-        </div>
-
-        <div class="h2" id="szorakozas" style="margin-top:18px;"><span class="bar"></span>Szórakozás</div>
-        <div class="cards">
-          
-      <div class="card2">
-        <div class="card2-title">Atlantis Bisztró &amp; Biliárd</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Atlantis+Bisztr%C3%B3+%26+Bili%C3%A1rd+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Game Up!</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Game+Up+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Flippermúzeum</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Flipperm%C3%BAzeum+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">GAME OVER Escape Rooms Budapest</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=GAME+OVER+Escape+Rooms+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">Metagame Klub</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Metagame+Klub+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-      <div class="card2">
-        <div class="card2-title">MystIQueRoom</div>
-        <div class="card2-actions"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=MystIQueRoom+Budapest" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Zm0-9.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg><span>Maps</span></a></div>
-      </div>
-    
-        </div>
-
-        <div class="h2" id="resztvevok" style="margin-top:18px;"><span class="bar"></span>Résztvevők</div>
-        <div class="people">
-          
-      <div class="p">
-        <img src="funday_img_01.jpg" alt="A Művész" loading="lazy">
-        <div class="p-cap">A Művész</div>
-        <div class="p-desc">Mindig elmagyaráz valamit, amit senki nem kérdezett.</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_02.jpg" alt="A Túratérkép" loading="lazy">
-        <div class="p-cap">A Túratérkép</div>
-        <div class="p-desc">Mindig tud egy jobb útvonalat – még akkor is, ha már ott vagytok.</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_03.jpg" alt="A Panoráma" loading="lazy">
-        <div class="p-cap">A Panoráma</div>
-        <div class="p-desc">Fotó + póz, mintha prospektus lenne. Egy katt – és kész a borítókép.</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_04.jpg" alt="A Gondolkodó" loading="lazy">
-        <div class="p-cap">A Gondolkodó</div>
-        <div class="p-desc">3 sör után életvezetési tanácsok. Meglepően pontos.</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_05.jpg" alt="A CEO" loading="lazy">
-        <div class="p-cap">A CEO</div>
-        <div class="p-desc">Ő intézné… de végül valahogy mégsem ő intézi.</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_06.jpg" alt="A Corporate Ninja" loading="lazy">
-        <div class="p-cap">A Corporate Ninja</div>
-        <div class="p-desc">Pontosan tudja, mikor kell eltűnni. És mikor kell visszajönni.</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_07.jpg" alt="A LinkedIn Legend" loading="lazy">
-        <div class="p-cap">A LinkedIn Legend</div>
-        <div class="p-desc">„Régen minden jobb volt” – majd 2 perccel később: „Na jó, ez most elég jó.”</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_08.jpg" alt="A Nagy Testvér" loading="lazy">
-        <div class="p-cap">A Nagy Testvér</div>
-        <div class="p-desc">Hangosabb, határozottabb, szervezőnek hiszi magát.</div>
-      </div>
-    
-      <div class="p">
-        <img src="funday_img_09.jpg" alt="A Kis Testvér" loading="lazy">
-        <div class="p-cap">A Kis Testvér</div>
-        <div class="p-desc">Ritkán szól, de amikor igen, akkor ül a poén.</div>
-      </div>
-    
-        </div>
-
-        <div class="footer">
-          <a class="btn top" href="#top">↑ Vissza a tetejére</a>
-        </div>
-      </main>
-
-      <aside class="panel" id="terkep">
-        <div class="h2"><span class="bar"></span>Térkép</div>
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sZZ5WNlHb67dBlpS7i1_BomMwPy7R6c&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Funday 2025 térkép"></iframe>
-        <div class="footer">
-          <a class="btn top" href="#top">↑ Vissza a tetejére</a>
-        </div>
-      </aside>
-    </div>
+    <nav class="nav-links">
+      <a href="#map">Térkép</a>
+      <a href="#flights">Járatok</a>
+      <a href="#crew">Crew</a>
+      <a href="#wtf">Albán WTF</a>
+      <a href="/funday-2025/">Archív 2025</a>
+    </nav>
   </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Tirana weekend loading…
+          </div>
+          <h1>Tirana.<br>6 arc.<br>4 nap.</h1>
+          <p class="lead">
+            Laza, férfias, városi hosszú hétvége. Térképpel, járatokkal, crew-listával
+            és azzal a külön műfajjal, amit Albánia simán tud: fura, nyers, valós, emlékezetes.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#map">Térkép megnyitása</a>
+            <a class="btn btn-secondary" href="#flights">Járatok</a>
+            <a class="btn btn-secondary" href="/funday-2025/">Régi Funday 2025</a>
+          </div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">2026.07.10–07.13</span>
+          <span class="chip">Budapest ↔ Tirana</span>
+          <span class="chip">Ryan + Wizz</span>
+          <span class="chip">City / food / chaos / sztorik</span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="glass">
+          <p class="mini-title">Trip status</p>
+          <p class="stat">Tirana 2026</p>
+          <p class="muted">
+            Az oldal most az alapstruktúrát tartalmazza. A következő körben jöhetnek a résztvevői képek,
+            extra programok, éttermek, rooftopok, klubok és napi bontás.
+          </p>
+          <div class="chips">
+            <span class="chip">alfa verzió</span>
+            <span class="chip">design kész</span>
+            <span class="chip">tartalom bővíthető</span>
+          </div>
+        </div>
+
+        <div class="glass">
+          <p class="mini-title">Mi van most benne?</p>
+          <p class="stat">Map + Flights + Crew + WTF</p>
+          <p class="muted">
+            Egyből használható landing. Nincs sallang: gyors infók, jó vizuál, nagy térkép és egy karakteres
+            Tirana-hangulat.
+          </p>
+          <div class="chips">
+            <span class="chip">mobilbarát</span>
+            <span class="chip">statikus</span>
+            <span class="chip">GitHub Pages-ready</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Nagy térkép</h2>
+          <p>
+            A megadott Google My Maps térképed beágyazva. Ha valakinek a beágyazott nézet nem tölt be rendesen,
+            lent ott a közvetlen megnyitás is.
+          </p>
+        </div>
+        <div class="pill">Custom map embed</div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-shell">
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1W8Quyoo3WUc_XnMHsSxBUOQ3xAUsk1k&ehbc=2E312F"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Tirana Albania 2026 map">
+          </iframe>
+        </div>
+        <div class="map-meta">
+          <span>Saját térkép: Tirana_Albania_2026</span>
+          <a href="https://www.google.com/maps/d/u/0/viewer?mid=1W8Quyoo3WUc_XnMHsSxBUOQ3xAUsk1k&usp=sharing" target="_blank" rel="noopener">
+            Megnyitás teljes képernyőn ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flights">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Járatok</h2>
+          <p>
+            Átmeneti flight-info dizájnos kártyákban. Ezt később lehet pontosítani, ha a végleges foglalások fixek.
+          </p>
+        </div>
+        <div class="pill">3 flight block</div>
+      </div>
+
+      <div class="flight-grid">
+        <article class="flight-card main">
+          <div class="flight-label">Fő opció · odafelé</div>
+          <h3 class="route">BUD → Tirana</h3>
+          <p class="time">14:20 – 15:50</p>
+          <p class="meta">
+            <strong>2026.07.10, péntek</strong><br>
+            Légitársaság: Ryanair
+          </p>
+        </article>
+
+        <article class="flight-card alt">
+          <div class="flight-label">Alternatíva</div>
+          <h3 class="route">BUD → Tirana</h3>
+          <p class="time">05:45 – 07:15</p>
+          <p class="meta">
+            <strong>2026.07.11, szombat</strong><br>
+            Légitársaság: Ryanair
+          </p>
+        </article>
+
+        <article class="flight-card return">
+          <div class="flight-label">Visszaút</div>
+          <h3 class="route">Tirana → BUD</h3>
+          <p class="time">16:00 – 17:30</p>
+          <p class="meta">
+            <strong>2026.07.13, hétfő</strong><br>
+            Várhatóan: Wizz Air
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="crew">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Crew</h2>
+          <p>
+            Résztvevők most név-alapon. A következő körben ide lehet rakni a képes karakterkártyákat.
+          </p>
+        </div>
+        <div class="pill">6 fő</div>
+      </div>
+
+      <div class="crew-card">
+        <div class="crew-list">
+          <span class="crew-pill">Steve</span>
+          <span class="crew-pill">Kotán Gergely</span>
+          <span class="crew-pill">Zsebő Béla</span>
+          <span class="crew-pill">Ádám</span>
+          <span class="crew-pill">Berci</span>
+          <span class="crew-pill">Maiczen G</span>
+        </div>
+        <div class="crew-note">
+          Következő lépésben ide jöhet: portré / avatar / mémes karaktervizuál minden résztvevőhöz.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wtf">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Albánia WTF, de igaz</h2>
+          <p>
+            Nem kamu, nem AI-hallucináció: ezek valós tiranai / albán jelenségek és helyek.
+            A dizájn camera-obscura / collage hangulatú, a tartalom viszont valós.
+          </p>
+        </div>
+        <div class="pill">weird but real</div>
+      </div>
+
+      <div class="wtf-grid">
+        <article class="wtf-card">
+          <div class="wtf-top">
+            <div class="wtf-type">Underground history</div>
+            <h3 class="wtf-title">Bunk’Art 1</h3>
+            <p class="wtf-desc">
+              Egy hatalmas, eredetileg antinukleáris bunker a város szélén, ma múzeum.
+              Hidegháborús paranoia, beton és történelem egyben.
+            </p>
+            <div class="wtf-tags">
+              <span class="wtf-tag">bunker</span>
+              <span class="wtf-tag">kommunista múlt</span>
+              <span class="wtf-tag">Tirana</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wtf-card">
+          <div class="wtf-top">
+            <div class="wtf-type">City center bunker</div>
+            <h3 class="wtf-title">Bunk’Art 2</h3>
+            <p class="wtf-desc">
+              Titkos bunker a belvárosban, ma múzeum. Közvetlenül a rendszer rendőri és megfigyelési gépezetére fókuszál.
+            </p>
+            <div class="wtf-tags">
+              <span class="wtf-tag">belváros</span>
+              <span class="wtf-tag">szokatlan</span>
+              <span class="wtf-tag">múzeum</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wtf-card">
+          <div class="wtf-top">
+            <div class="wtf-type">Surveillance museum</div>
+            <h3 class="wtf-title">House of Leaves</h3>
+            <p class="wtf-desc">
+              Egy volt megfigyelési központ, amely ma a kommunista állambiztonság lehallgatási és kontroll-rendszerét mutatja be.
+            </p>
+            <div class="wtf-tags">
+              <span class="wtf-tag">Sigurimi</span>
+              <span class="wtf-tag">lehallgatás</span>
+              <span class="wtf-tag">sötét turizmus</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wtf-card">
+          <div class="wtf-top">
+            <div class="wtf-type">Reclaimed monument</div>
+            <h3 class="wtf-title">Pyramid of Tirana</h3>
+            <p class="wtf-desc">
+              Az egykori diktátormúzeumból nyitott, mászható, kortárs közösségi-kulturális tér lett.
+              Ugyanaz az épület, teljesen más jelentéssel.
+            </p>
+            <div class="wtf-tags">
+              <span class="wtf-tag">ikonikus</span>
+              <span class="wtf-tag">újrahasznosított</span>
+              <span class="wtf-tag">brutál látvány</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wtf-card">
+          <div class="wtf-top">
+            <div class="wtf-type">Visual chaos</div>
+            <h3 class="wtf-title">Színes tiranai homlokzatok</h3>
+            <p class="wtf-desc">
+              Tirana egyik védjegye a merész, színes épületfestés. A Rainbow Building konkrétan turistacélpont lett.
+            </p>
+            <div class="wtf-tags">
+              <span class="wtf-tag">urban color</span>
+              <span class="wtf-tag">Rainbow Building</span>
+              <span class="wtf-tag">fotóspot</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wtf-card">
+          <div class="wtf-top">
+            <div class="wtf-type">Country-scale weirdness</div>
+            <h3 class="wtf-title">Albán bunkerek mindenhol</h3>
+            <p class="wtf-desc">
+              Albánia egyik legfurább öröksége a bunkerek országos jelenléte:
+              a betonkupolák nem csak múzeumban, hanem a tájban is felbukkannak.
+            </p>
+            <div class="wtf-tags">
+              <span class="wtf-tag">Albánia</span>
+              <span class="wtf-tag">örökség</span>
+              <span class="wtf-tag">wtf-faktor</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="cta-card">
+        <div>
+          <h3>Kövi kör: képek + napi bontás</h3>
+          <p>
+            Ide logikusan a következő bővítés: résztvevői képkártyák, napi itinerary, rooftop / étterem / bár shortlist,
+            és egy még erősebb vizuális montázs.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="#crew">Crew részhez</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-line">
+    <span>© Funday.hu · Tirana 2026</span>
+    <span>
+      <a href="/funday-2025/">Archív Funday 2025</a>
+    </span>
+  </div>
+</footer>
+
 </body>
 </html>
-
