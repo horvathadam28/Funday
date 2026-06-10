@@ -4,132 +4,223 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Funday.hu – Tirana 2026</title>
-  <meta name="description" content="Funday Tirana 2026 – térkép, járatok, crew és az albán WTF-faktor.">
-  <meta name="theme-color" content="#0d1320">
+  <meta name="description" content="Tirana 2026 – Funday utazás, térkép, járatok, crew és albán városi furcsaságok.">
+  <meta name="theme-color" content="#090f1f">
+
   <style>
     :root{
-      --bg:#0b1020;
-      --bg2:#121a2c;
-      --card:rgba(255,255,255,0.08);
-      --card-strong:rgba(255,255,255,0.12);
-      --text:#f7f9ff;
-      --muted:#a9b3c9;
-      --line:rgba(255,255,255,0.12);
-      --accent:#67e8f9;
-      --accent2:#a78bfa;
-      --accent3:#f59e0b;
-      --ok:#34d399;
-      --danger:#fb7185;
-      --shadow:0 18px 60px rgba(0,0,0,.30);
+      --bg:#090f1f;
+      --bg2:#10192d;
+      --text:#f8fbff;
+      --muted:#aab6cc;
+      --line:rgba(255,255,255,.13);
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.12);
+      --cyan:#67e8f9;
+      --purple:#a78bfa;
+      --orange:#f59e0b;
+      --green:#34d399;
+      --red:#fb7185;
       --radius:24px;
-      --radius-sm:16px;
+      --shadow:0 22px 80px rgba(0,0,0,.35);
       --max:1180px;
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(103,232,249,.14), transparent 30%),
-        radial-gradient(circle at 90% 15%, rgba(167,139,250,.18), transparent 35%),
-        radial-gradient(circle at 30% 100%, rgba(245,158,11,.10), transparent 30%),
-        linear-gradient(180deg, #0a0f1e 0%, #0e1628 100%);
+        radial-gradient(circle at 8% 10%, rgba(103,232,249,.16), transparent 28%),
+        radial-gradient(circle at 92% 10%, rgba(167,139,250,.18), transparent 34%),
+        radial-gradient(circle at 42% 105%, rgba(245,158,11,.12), transparent 36%),
+        linear-gradient(180deg,#080d1a 0%,#10192d 100%);
       min-height:100vh;
     }
 
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{width:min(var(--max), calc(100% - 28px)); margin:0 auto}
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      color:var(--muted);
-      font-size:13px;
-      font-weight:700;
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .wrap{
+      width:min(var(--max),calc(100% - 28px));
+      margin:0 auto;
     }
 
     header{
       position:sticky;
       top:0;
-      z-index:50;
-      backdrop-filter: blur(16px);
-      background:rgba(11,16,32,.68);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      z-index:100;
+      background:rgba(9,15,31,.72);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.09);
     }
 
     .nav{
+      min-height:72px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:18px;
-      min-height:72px;
+      position:relative;
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
-      font-weight:900;
-      letter-spacing:-.03em;
-      font-size:24px;
+      font-size:23px;
+      font-weight:950;
+      letter-spacing:-.04em;
     }
 
-    .brand-badge{
-      width:38px;
-      height:38px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
+    .brand-mark{
+      width:40px;
+      height:40px;
+      border-radius:15px;
+      background:
+        linear-gradient(135deg,var(--cyan),var(--purple));
+      box-shadow:0 14px 42px rgba(103,232,249,.22);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .brand-mark:before{
+      content:"";
+      position:absolute;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:rgba(255,255,255,.55);
+      top:8px;
+      left:8px;
+    }
+
+    .desktop-menu{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .desktop-menu a{
+      color:var(--muted);
+      font-weight:850;
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:13px;
+    }
+
+    .desktop-menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.07);
+    }
+
+    .archive-link{
+      color:#07111f !important;
+      background:linear-gradient(135deg,var(--cyan),var(--purple)) !important;
+    }
+
+    #menu-toggle{
+      display:none;
+    }
+
+    .hamburger{
+      display:none;
+      width:46px;
+      height:46px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.07);
+      cursor:pointer;
+    }
+
+    .hamburger span,
+    .hamburger span:before,
+    .hamburger span:after{
+      content:"";
+      display:block;
+      width:20px;
+      height:2px;
+      background:#fff;
+      border-radius:999px;
+      position:relative;
+      transition:.2s ease;
+    }
+
+    .hamburger span:before{
+      position:absolute;
+      top:-7px;
+    }
+
+    .hamburger span:after{
+      position:absolute;
+      top:7px;
+    }
+
+    .mobile-menu{
+      display:none;
+      position:absolute;
+      top:66px;
+      right:0;
+      width:min(320px,calc(100vw - 28px));
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:rgba(9,15,31,.96);
       box-shadow:var(--shadow);
     }
 
-    .nav-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+    .mobile-menu a{
+      display:block;
+      padding:14px 14px;
+      border-radius:14px;
+      color:#e9efff;
+      font-weight:900;
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
 
-    .nav-links a{
-      color:var(--muted);
-      font-weight:800;
-      font-size:14px;
-      padding:10px 12px;
-      border-radius:12px;
+    .mobile-menu a:last-child{
+      border-bottom:0;
     }
 
-    .nav-links a:hover{
-      color:var(--text);
-      background:rgba(255,255,255,.06);
+    .mobile-menu a:hover{
+      background:rgba(255,255,255,.08);
     }
 
     .hero{
-      padding:56px 0 34px;
+      padding:58px 0 28px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
+      grid-template-columns:1.08fr .92fr;
       gap:22px;
       align-items:stretch;
     }
 
-    .hero-card, .glass, .flight-card, .crew-card, .map-card, .wtf-card, .cta-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+    .hero-main,
+    .side-card,
+    .map-card,
+    .flight-card,
+    .crew-card,
+    .wtf-card,
+    .footer-card{
       border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
 
-    .hero-card{
-      padding:34px;
-      min-height:430px;
+    .hero-main{
+      padding:36px;
+      min-height:460px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
@@ -137,14 +228,15 @@
       position:relative;
     }
 
-    .hero-card::after{
+    .hero-main:after{
       content:"";
       position:absolute;
-      inset:auto -60px -60px auto;
-      width:240px;
-      height:240px;
+      width:280px;
+      height:280px;
+      right:-90px;
+      bottom:-100px;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(103,232,249,.18), transparent 68%);
+      background:radial-gradient(circle,rgba(103,232,249,.22),transparent 68%);
       pointer-events:none;
     }
 
@@ -152,32 +244,33 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
+      color:#dce7fb;
+      font-weight:950;
       font-size:14px;
-      font-weight:900;
-      color:#d7def0;
-      margin-bottom:18px;
+      letter-spacing:.02em;
+      margin-bottom:20px;
     }
 
-    .dot{
+    .pulse{
       width:10px;
       height:10px;
       border-radius:50%;
-      background:var(--ok);
-      box-shadow:0 0 0 6px rgba(52,211,153,.12);
+      background:var(--green);
+      box-shadow:0 0 0 7px rgba(52,211,153,.13);
     }
 
     h1{
-      margin:0 0 14px;
-      font-size:clamp(40px, 8vw, 86px);
-      line-height:.92;
-      letter-spacing:-.06em;
+      margin:0 0 18px;
+      font-size:clamp(46px,8vw,92px);
+      line-height:.9;
+      letter-spacing:-.07em;
     }
 
     .lead{
       margin:0;
-      max-width:740px;
+      max-width:780px;
       color:var(--muted);
-      font-size:clamp(18px, 2vw, 22px);
+      font-size:clamp(18px,2vw,23px);
       line-height:1.5;
     }
 
@@ -185,7 +278,7 @@
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:28px;
+      margin-top:30px;
     }
 
     .btn{
@@ -194,8 +287,8 @@
       justify-content:center;
       min-height:48px;
       padding:12px 18px;
-      border-radius:14px;
-      font-weight:900;
+      border-radius:15px;
+      font-weight:950;
       border:1px solid var(--line);
       transition:.18s ease;
     }
@@ -205,14 +298,33 @@
     }
 
     .btn-primary{
-      color:#08111e;
+      color:#07111f;
       border:0;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      background:linear-gradient(135deg,var(--cyan),var(--purple));
     }
 
     .btn-secondary{
       color:var(--text);
-      background:rgba(255,255,255,.06);
+      background:rgba(255,255,255,.07);
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:24px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      color:#edf4ff;
+      font-size:13px;
+      font-weight:850;
     }
 
     .hero-side{
@@ -221,159 +333,158 @@
       gap:22px;
     }
 
-    .glass{
+    .side-card{
       padding:24px;
-      position:relative;
       overflow:hidden;
+      position:relative;
     }
 
-    .mini-title{
+    .small-title{
       margin:0 0 10px;
+      color:#d4def3;
       font-size:13px;
       letter-spacing:.12em;
       text-transform:uppercase;
-      color:#c6d0e4;
-      font-weight:900;
+      font-weight:950;
     }
 
-    .stat{
-      font-size:34px;
-      font-weight:900;
-      letter-spacing:-.05em;
+    .big-stat{
       margin:0 0 10px;
+      font-size:34px;
+      font-weight:950;
+      letter-spacing:-.055em;
     }
 
     .muted{
+      margin:0;
       color:var(--muted);
       line-height:1.55;
-      margin:0;
-    }
-
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .chip{
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
-      color:#eef3ff;
-      font-size:13px;
-      font-weight:800;
     }
 
     section{
-      padding:18px 0 26px;
+      padding:22px 0 30px;
     }
 
     .section-head{
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
-      gap:20px;
+      gap:22px;
       margin-bottom:18px;
     }
 
     .section-head h2{
       margin:0;
-      font-size:clamp(28px, 4vw, 42px);
-      letter-spacing:-.05em;
+      font-size:clamp(30px,4vw,46px);
+      letter-spacing:-.055em;
     }
 
     .section-head p{
       margin:8px 0 0;
       color:var(--muted);
-      max-width:760px;
+      max-width:780px;
       line-height:1.55;
     }
 
+    .section-pill{
+      white-space:nowrap;
+      padding:9px 13px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:#dce7fb;
+      background:rgba(255,255,255,.06);
+      font-size:13px;
+      font-weight:900;
+    }
+
     .map-card{
-      overflow:hidden;
       padding:14px;
+      overflow:hidden;
     }
 
     .map-shell{
       border-radius:20px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      min-height:580px;
-      background:#09101d;
+      border:1px solid rgba(255,255,255,.11);
+      background:#07101e;
+      min-height:590px;
     }
 
     .map-shell iframe{
       display:block;
       width:100%;
-      height:580px;
+      height:590px;
       border:0;
     }
 
     .map-meta{
       display:flex;
+      align-items:center;
       justify-content:space-between;
       gap:14px;
-      padding:14px 8px 2px;
       flex-wrap:wrap;
+      padding:14px 8px 2px;
       color:var(--muted);
+      font-weight:800;
       font-size:14px;
-      font-weight:700;
+    }
+
+    .map-meta a{
+      color:#eaf2ff;
     }
 
     .flight-grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:16px;
     }
 
     .flight-card{
-      padding:22px;
+      padding:23px;
       position:relative;
       overflow:hidden;
     }
 
-    .flight-card.alt{
-      background:linear-gradient(180deg, rgba(245,158,11,.14), rgba(255,255,255,.05));
+    .flight-card.main{
+      background:linear-gradient(180deg,rgba(103,232,249,.16),rgba(255,255,255,.045));
     }
 
-    .flight-card.main{
-      background:linear-gradient(180deg, rgba(103,232,249,.14), rgba(255,255,255,.05));
+    .flight-card.alt{
+      background:linear-gradient(180deg,rgba(245,158,11,.16),rgba(255,255,255,.045));
     }
 
     .flight-card.return{
-      background:linear-gradient(180deg, rgba(167,139,250,.14), rgba(255,255,255,.05));
+      background:linear-gradient(180deg,rgba(167,139,250,.16),rgba(255,255,255,.045));
     }
 
     .flight-label{
       display:inline-flex;
+      margin-bottom:15px;
       padding:7px 10px;
       border-radius:999px;
-      background:rgba(255,255,255,.10);
       border:1px solid var(--line);
+      background:rgba(255,255,255,.10);
       font-size:12px;
-      font-weight:900;
-      text-transform:uppercase;
+      font-weight:950;
       letter-spacing:.08em;
-      margin-bottom:14px;
+      text-transform:uppercase;
     }
 
     .route{
-      font-size:26px;
-      font-weight:900;
-      letter-spacing:-.04em;
-      margin:0 0 6px;
+      margin:0 0 8px;
+      font-size:27px;
+      font-weight:950;
+      letter-spacing:-.045em;
     }
 
     .time{
+      margin:0 0 10px;
       font-size:42px;
-      font-weight:900;
+      font-weight:950;
       letter-spacing:-.06em;
-      margin:0 0 8px;
     }
 
-    .meta{
+    .flight-meta{
       margin:0;
       color:var(--muted);
       line-height:1.55;
@@ -381,142 +492,150 @@
     }
 
     .crew-card{
-      padding:22px;
+      padding:24px;
     }
 
     .crew-list{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:14px;
     }
 
     .crew-pill{
-      padding:12px 14px;
+      padding:13px 15px;
       border-radius:999px;
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.08);
       border:1px solid var(--line);
+      color:#f2f6ff;
       font-size:15px;
-      font-weight:900;
-      color:#eef4ff;
-    }
-
-    .crew-note{
-      margin-top:14px;
-      color:var(--muted);
-      font-size:14px;
+      font-weight:950;
     }
 
     .wtf-grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:18px;
       align-items:start;
     }
 
     .wtf-card{
+      min-height:260px;
       padding:18px;
-      min-height:250px;
       position:relative;
       overflow:hidden;
       transform-origin:center;
     }
 
-    .wtf-card:nth-child(1){transform:rotate(-2deg)}
-    .wtf-card:nth-child(2){transform:rotate(1.4deg)}
-    .wtf-card:nth-child(3){transform:rotate(-1deg)}
-    .wtf-card:nth-child(4){transform:rotate(1.5deg)}
-    .wtf-card:nth-child(5){transform:rotate(-1.4deg)}
+    .wtf-card:nth-child(1){transform:rotate(-1.7deg)}
+    .wtf-card:nth-child(2){transform:rotate(1.2deg)}
+    .wtf-card:nth-child(3){transform:rotate(-.9deg)}
+    .wtf-card:nth-child(4){transform:rotate(1.6deg)}
+    .wtf-card:nth-child(5){transform:rotate(-1.3deg)}
     .wtf-card:nth-child(6){transform:rotate(.8deg)}
 
-    .wtf-card::before{
-      content:"100% VALÓS";
+    .wtf-card:before{
+      content:"VALÓS";
       position:absolute;
       top:14px;
       right:14px;
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.10em;
-      color:#082114;
       padding:7px 10px;
       border-radius:999px;
-      background:var(--ok);
-      box-shadow:0 12px 28px rgba(52,211,153,.25);
+      background:var(--green);
+      color:#061a12;
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.10em;
+      box-shadow:0 12px 26px rgba(52,211,153,.24);
     }
 
-    .wtf-top{
+    .wtf-card:after{
+      content:"";
+      position:absolute;
+      inset:auto -80px -100px auto;
+      width:210px;
+      height:210px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(255,255,255,.09),transparent 70%);
+      pointer-events:none;
+    }
+
+    .wtf-inner{
       padding-top:38px;
+      position:relative;
+      z-index:2;
     }
 
     .wtf-type{
       display:inline-block;
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      color:#d4ddf2;
       margin-bottom:10px;
+      color:#d4def3;
+      font-size:12px;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+      font-weight:950;
     }
 
     .wtf-title{
       margin:0 0 10px;
       font-size:24px;
-      font-weight:900;
-      letter-spacing:-.04em;
+      line-height:1.05;
+      font-weight:950;
+      letter-spacing:-.045em;
     }
 
     .wtf-desc{
-      margin:0 0 14px;
+      margin:0 0 15px;
       color:var(--muted);
       line-height:1.55;
       font-size:15px;
     }
 
-    .wtf-tags{
+    .tags{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
     }
 
-    .wtf-tag{
-      font-size:12px;
-      font-weight:800;
-      color:#f4f7ff;
+    .tag{
+      padding:7px 9px;
+      border-radius:999px;
       background:rgba(255,255,255,.08);
       border:1px solid var(--line);
-      border-radius:999px;
-      padding:7px 9px;
+      color:#edf4ff;
+      font-size:12px;
+      font-weight:850;
     }
 
-    .cta-card{
-      padding:26px;
+    .footer-card{
+      margin-top:18px;
+      padding:24px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       gap:18px;
-      margin-top:10px;
+      flex-wrap:wrap;
     }
 
-    .cta-card h3{
+    .footer-card h3{
       margin:0 0 8px;
       font-size:28px;
-      letter-spacing:-.04em;
+      letter-spacing:-.045em;
     }
 
-    .cta-card p{
+    .footer-card p{
       margin:0;
       color:var(--muted);
       line-height:1.55;
     }
 
     footer{
-      padding:30px 0 40px;
+      padding:30px 0 38px;
       color:var(--muted);
       font-size:14px;
     }
 
     .footer-line{
-      border-top:1px solid rgba(255,255,255,.08);
+      border-top:1px solid rgba(255,255,255,.09);
       padding-top:18px;
       display:flex;
       justify-content:space-between;
@@ -524,110 +643,219 @@
       flex-wrap:wrap;
     }
 
-    @media (max-width: 1024px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-side{grid-template-rows:auto}
-      .flight-grid{grid-template-columns:1fr}
-      .wtf-grid{grid-template-columns:1fr 1fr}
+    @media (max-width: 980px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-side{
+        grid-template-rows:auto;
+      }
+
+      .flight-grid{
+        grid-template-columns:1fr;
+      }
+
+      .wtf-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
       .map-shell,
-      .map-shell iframe{height:500px; min-height:500px}
+      .map-shell iframe{
+        height:520px;
+        min-height:520px;
+      }
     }
 
-    @media (max-width: 700px){
-      .nav{align-items:flex-start; padding:14px 0; flex-direction:column}
-      .nav-links{gap:6px}
-      .hero{padding-top:28px}
-      .hero-card{padding:22px; min-height:auto}
-      .glass{padding:18px}
-      .map-card{padding:10px}
+    @media (max-width: 760px){
+      .desktop-menu{
+        display:none;
+      }
+
+      .hamburger{
+        display:flex;
+      }
+
+      #menu-toggle:checked ~ .mobile-menu{
+        display:block;
+      }
+
+      #menu-toggle:checked + .hamburger span{
+        background:transparent;
+      }
+
+      #menu-toggle:checked + .hamburger span:before{
+        top:0;
+        transform:rotate(45deg);
+      }
+
+      #menu-toggle:checked + .hamburger span:after{
+        top:0;
+        transform:rotate(-45deg);
+      }
+
+      .nav{
+        min-height:68px;
+      }
+
+      .hero{
+        padding-top:30px;
+      }
+
+      .hero-main{
+        min-height:auto;
+        padding:23px;
+      }
+
+      h1{
+        font-size:48px;
+      }
+
+      .lead{
+        font-size:18px;
+      }
+
+      .section-head{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .section-pill{
+        white-space:normal;
+      }
+
+      .map-card{
+        padding:10px;
+      }
+
       .map-shell,
-      .map-shell iframe{height:420px; min-height:420px}
-      .wtf-grid{grid-template-columns:1fr}
-      .cta-card{flex-direction:column; align-items:flex-start}
-      h1{font-size:46px}
-      .time{font-size:34px}
-      .route{font-size:22px}
-      .cta-card h3{font-size:24px}
+      .map-shell iframe{
+        height:430px;
+        min-height:430px;
+      }
+
+      .wtf-grid{
+        grid-template-columns:1fr;
+      }
+
+      .wtf-card{
+        transform:none !important;
+      }
+
+      .time{
+        font-size:34px;
+      }
+
+      .route{
+        font-size:23px;
+      }
+
+      .footer-card{
+        align-items:flex-start;
+        flex-direction:column;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <div class="wrap nav">
-    <div class="brand">
-      <div class="brand-badge"></div>
+    <a class="brand" href="#top" aria-label="Funday főoldal">
+      <span class="brand-mark"></span>
       <span>Funday.hu</span>
-    </div>
-    <nav class="nav-links">
+    </a>
+
+    <nav class="desktop-menu" aria-label="Fő navigáció">
       <a href="#map">Térkép</a>
       <a href="#flights">Járatok</a>
       <a href="#crew">Crew</a>
       <a href="#wtf">Albán WTF</a>
-      <a href="/funday-2025/">Archív 2025</a>
+      <a class="archive-link" href="/funday-2025/">Régi oldal</a>
+    </nav>
+
+    <input type="checkbox" id="menu-toggle" aria-label="Menü megnyitása">
+    <label class="hamburger" for="menu-toggle" aria-label="Menü">
+      <span></span>
+    </label>
+
+    <nav class="mobile-menu" aria-label="Mobil navigáció">
+      <a href="#map">Térkép</a>
+      <a href="#flights">Járatok</a>
+      <a href="#crew">Crew</a>
+      <a href="#wtf">Albán WTF</a>
+      <a href="/funday-2025/">Régi Funday oldal</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="top">
+
   <section class="hero">
     <div class="wrap hero-grid">
-      <div class="hero-card">
+
+      <article class="hero-main">
         <div>
           <div class="eyebrow">
-            <span class="dot"></span>
-            Tirana weekend loading…
+            <span class="pulse"></span>
+            Budapest → Tirana
           </div>
-          <h1>Tirana.<br>6 arc.<br>4 nap.</h1>
+
+          <h1>Tirana.<br>6 fő.<br>4 nap.</h1>
+
           <p class="lead">
-            Laza, férfias, városi hosszú hétvége. Térképpel, járatokkal, crew-listával
-            és azzal a külön műfajjal, amit Albánia simán tud: fura, nyers, valós, emlékezetes.
+            Városi hosszú hétvége Albániában: rooftop, kaja, bunker, térkép,
+            mediterrán káosz és elég furcsa hely ahhoz, hogy legyen miről beszélni hazafelé.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#map">Térkép megnyitása</a>
+            <a class="btn btn-primary" href="#map">Térkép</a>
             <a class="btn btn-secondary" href="#flights">Járatok</a>
-            <a class="btn btn-secondary" href="/funday-2025/">Régi Funday 2025</a>
+            <a class="btn btn-secondary" href="/funday-2025/">Régi oldal</a>
           </div>
         </div>
 
         <div class="chips">
           <span class="chip">2026.07.10–07.13</span>
-          <span class="chip">Budapest ↔ Tirana</span>
-          <span class="chip">Ryan + Wizz</span>
-          <span class="chip">City / food / chaos / sztorik</span>
+          <span class="chip">Tirana</span>
+          <span class="chip">6 fős crew</span>
+          <span class="chip">city trip</span>
         </div>
-      </div>
+      </article>
 
-      <div class="hero-side">
-        <div class="glass">
-          <p class="mini-title">Trip status</p>
-          <p class="stat">Tirana 2026</p>
+      <aside class="hero-side">
+        <article class="side-card">
+          <p class="small-title">Alap hangulat</p>
+          <p class="big-stat">Balkan city mode</p>
           <p class="muted">
-            Az oldal most az alapstruktúrát tartalmazza. A következő körben jöhetnek a résztvevői képek,
-            extra programok, éttermek, rooftopok, klubok és napi bontás.
+            Rövid repülés, sűrű város, erős kontrasztok, jó kaják, furcsa történelmi helyek,
+            este pedig Blloku és a belváros.
           </p>
           <div class="chips">
-            <span class="chip">alfa verzió</span>
-            <span class="chip">design kész</span>
-            <span class="chip">tartalom bővíthető</span>
+            <span class="chip">Blloku</span>
+            <span class="chip">rooftop</span>
+            <span class="chip">grill</span>
+            <span class="chip">bunker</span>
           </div>
-        </div>
+        </article>
 
-        <div class="glass">
-          <p class="mini-title">Mi van most benne?</p>
-          <p class="stat">Map + Flights + Crew + WTF</p>
+        <article class="side-card">
+          <p class="small-title">Trip fókusz</p>
+          <p class="big-stat">Kevés idő, sok sztori</p>
           <p class="muted">
-            Egyből használható landing. Nincs sallang: gyors infók, jó vizuál, nagy térkép és egy karakteres
-            Tirana-hangulat.
+            Nem múzeumtúra, nem strandnyaralás. Egy kompakt, laza tiranai kör:
+            térképezve, gyorsan áttekinthetően.
           </p>
           <div class="chips">
-            <span class="chip">mobilbarát</span>
-            <span class="chip">statikus</span>
-            <span class="chip">GitHub Pages-ready</span>
+            <span class="chip">walking</span>
+            <span class="chip">taxi</span>
+            <span class="chip">nightlife</span>
+            <span class="chip">food</span>
           </div>
-        </div>
-      </div>
+        </article>
+      </aside>
+
     </div>
   </section>
 
@@ -637,29 +865,29 @@
         <div>
           <h2>Nagy térkép</h2>
           <p>
-            A megadott Google My Maps térképed beágyazva. Ha valakinek a beágyazott nézet nem tölt be rendesen,
-            lent ott a közvetlen megnyitás is.
+            Saját Tirana-térkép helyekkel, útvonalakkal és shortlist pontokkal.
           </p>
         </div>
-        <div class="pill">Custom map embed</div>
+        <div class="section-pill">Google My Maps</div>
       </div>
 
-      <div class="map-card">
+      <article class="map-card">
         <div class="map-shell">
           <iframe
             src="https://www.google.com/maps/d/embed?mid=1W8Quyoo3WUc_XnMHsSxBUOQ3xAUsk1k&ehbc=2E312F"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Tirana Albania 2026 map">
+            title="Tirana Albania 2026 térkép">
           </iframe>
         </div>
+
         <div class="map-meta">
-          <span>Saját térkép: Tirana_Albania_2026</span>
+          <span>Tirana_Albania_2026</span>
           <a href="https://www.google.com/maps/d/u/0/viewer?mid=1W8Quyoo3WUc_XnMHsSxBUOQ3xAUsk1k&usp=sharing" target="_blank" rel="noopener">
-            Megnyitás teljes képernyőn ↗
+            Teljes képernyős térkép ↗
           </a>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -669,40 +897,40 @@
         <div>
           <h2>Járatok</h2>
           <p>
-            Átmeneti flight-info dizájnos kártyákban. Ezt később lehet pontosítani, ha a végleges foglalások fixek.
+            Oda-vissza opciók egy helyen, gyorsan áttekinthetően.
           </p>
         </div>
-        <div class="pill">3 flight block</div>
+        <div class="section-pill">Budapest ↔ Tirana</div>
       </div>
 
       <div class="flight-grid">
         <article class="flight-card main">
-          <div class="flight-label">Fő opció · odafelé</div>
+          <div class="flight-label">Odafelé · fő opció</div>
           <h3 class="route">BUD → Tirana</h3>
           <p class="time">14:20 – 15:50</p>
-          <p class="meta">
+          <p class="flight-meta">
             <strong>2026.07.10, péntek</strong><br>
-            Légitársaság: Ryanair
+            Ryanair
           </p>
         </article>
 
         <article class="flight-card alt">
-          <div class="flight-label">Alternatíva</div>
+          <div class="flight-label">Odafelé · alternatíva</div>
           <h3 class="route">BUD → Tirana</h3>
           <p class="time">05:45 – 07:15</p>
-          <p class="meta">
+          <p class="flight-meta">
             <strong>2026.07.11, szombat</strong><br>
-            Légitársaság: Ryanair
+            Ryanair
           </p>
         </article>
 
         <article class="flight-card return">
-          <div class="flight-label">Visszaút</div>
+          <div class="flight-label">Visszafelé</div>
           <h3 class="route">Tirana → BUD</h3>
           <p class="time">16:00 – 17:30</p>
-          <p class="meta">
+          <p class="flight-meta">
             <strong>2026.07.13, hétfő</strong><br>
-            Várhatóan: Wizz Air
+            várhatóan Wizz Air
           </p>
         </article>
       </div>
@@ -715,13 +943,13 @@
         <div>
           <h2>Crew</h2>
           <p>
-            Résztvevők most név-alapon. A következő körben ide lehet rakni a képes karakterkártyákat.
+            Hatfős tiranai csapat.
           </p>
         </div>
-        <div class="pill">6 fő</div>
+        <div class="section-pill">6 fő</div>
       </div>
 
-      <div class="crew-card">
+      <article class="crew-card">
         <div class="crew-list">
           <span class="crew-pill">Steve</span>
           <span class="crew-pill">Kotán Gergely</span>
@@ -730,10 +958,7 @@
           <span class="crew-pill">Berci</span>
           <span class="crew-pill">Maiczen G</span>
         </div>
-        <div class="crew-note">
-          Következő lépésben ide jöhet: portré / avatar / mémes karaktervizuál minden résztvevőhöz.
-        </div>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -741,130 +966,124 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <h2>Albánia WTF, de igaz</h2>
+          <h2>Albán WTF, de igaz</h2>
           <p>
-            Nem kamu, nem AI-hallucináció: ezek valós tiranai / albán jelenségek és helyek.
-            A dizájn camera-obscura / collage hangulatú, a tartalom viszont valós.
+            Furcsa, nyers, valós tiranai és albán helyek / jelenségek.
           </p>
         </div>
-        <div class="pill">weird but real</div>
+        <div class="section-pill">camera obscura mood</div>
       </div>
 
       <div class="wtf-grid">
         <article class="wtf-card">
-          <div class="wtf-top">
-            <div class="wtf-type">Underground history</div>
+          <div class="wtf-inner">
+            <span class="wtf-type">Underground</span>
             <h3 class="wtf-title">Bunk’Art 1</h3>
             <p class="wtf-desc">
-              Egy hatalmas, eredetileg antinukleáris bunker a város szélén, ma múzeum.
-              Hidegháborús paranoia, beton és történelem egyben.
+              Egy hatalmas, volt antinukleáris bunker a város szélén, ma történelmi és művészeti múzeum.
             </p>
-            <div class="wtf-tags">
-              <span class="wtf-tag">bunker</span>
-              <span class="wtf-tag">kommunista múlt</span>
-              <span class="wtf-tag">Tirana</span>
+            <div class="tags">
+              <span class="tag">bunker</span>
+              <span class="tag">hidegháború</span>
+              <span class="tag">beton</span>
             </div>
           </div>
         </article>
 
         <article class="wtf-card">
-          <div class="wtf-top">
-            <div class="wtf-type">City center bunker</div>
+          <div class="wtf-inner">
+            <span class="wtf-type">Belváros</span>
             <h3 class="wtf-title">Bunk’Art 2</h3>
             <p class="wtf-desc">
-              Titkos bunker a belvárosban, ma múzeum. Közvetlenül a rendszer rendőri és megfigyelési gépezetére fókuszál.
+              Titkos bunker a központban, a kommunista korszak rendőri és megfigyelési világával.
             </p>
-            <div class="wtf-tags">
-              <span class="wtf-tag">belváros</span>
-              <span class="wtf-tag">szokatlan</span>
-              <span class="wtf-tag">múzeum</span>
+            <div class="tags">
+              <span class="tag">központ</span>
+              <span class="tag">múzeum</span>
+              <span class="tag">sötét múlt</span>
             </div>
           </div>
         </article>
 
         <article class="wtf-card">
-          <div class="wtf-top">
-            <div class="wtf-type">Surveillance museum</div>
+          <div class="wtf-inner">
+            <span class="wtf-type">Megfigyelés</span>
             <h3 class="wtf-title">House of Leaves</h3>
             <p class="wtf-desc">
-              Egy volt megfigyelési központ, amely ma a kommunista állambiztonság lehallgatási és kontroll-rendszerét mutatja be.
+              Volt állambiztonsági megfigyelőközpont, ma múzeum lehallgatással, kontrollal és titkos technikákkal.
             </p>
-            <div class="wtf-tags">
-              <span class="wtf-tag">Sigurimi</span>
-              <span class="wtf-tag">lehallgatás</span>
-              <span class="wtf-tag">sötét turizmus</span>
+            <div class="tags">
+              <span class="tag">Sigurimi</span>
+              <span class="tag">lehallgatás</span>
+              <span class="tag">paranoia</span>
             </div>
           </div>
         </article>
 
         <article class="wtf-card">
-          <div class="wtf-top">
-            <div class="wtf-type">Reclaimed monument</div>
+          <div class="wtf-inner">
+            <span class="wtf-type">Ikon</span>
             <h3 class="wtf-title">Pyramid of Tirana</h3>
             <p class="wtf-desc">
-              Az egykori diktátormúzeumból nyitott, mászható, kortárs közösségi-kulturális tér lett.
-              Ugyanaz az épület, teljesen más jelentéssel.
+              Egykori diktátormúzeum, újrahasznosítva nyitott, mászható városi kulturális térré.
             </p>
-            <div class="wtf-tags">
-              <span class="wtf-tag">ikonikus</span>
-              <span class="wtf-tag">újrahasznosított</span>
-              <span class="wtf-tag">brutál látvány</span>
+            <div class="tags">
+              <span class="tag">piramis</span>
+              <span class="tag">brutál forma</span>
+              <span class="tag">új jelentés</span>
             </div>
           </div>
         </article>
 
         <article class="wtf-card">
-          <div class="wtf-top">
-            <div class="wtf-type">Visual chaos</div>
-            <h3 class="wtf-title">Színes tiranai homlokzatok</h3>
+          <div class="wtf-inner">
+            <span class="wtf-type">Városkép</span>
+            <h3 class="wtf-title">Színes homlokzatok</h3>
             <p class="wtf-desc">
-              Tirana egyik védjegye a merész, színes épületfestés. A Rainbow Building konkrétan turistacélpont lett.
+              Tirana egyik védjegye a vad, színes épületfestés. A város néha direkt úgy néz ki, mint egy glitch.
             </p>
-            <div class="wtf-tags">
-              <span class="wtf-tag">urban color</span>
-              <span class="wtf-tag">Rainbow Building</span>
-              <span class="wtf-tag">fotóspot</span>
+            <div class="tags">
+              <span class="tag">színek</span>
+              <span class="tag">fotóspot</span>
+              <span class="tag">Blloku vibe</span>
             </div>
           </div>
         </article>
 
         <article class="wtf-card">
-          <div class="wtf-top">
-            <div class="wtf-type">Country-scale weirdness</div>
-            <h3 class="wtf-title">Albán bunkerek mindenhol</h3>
+          <div class="wtf-inner">
+            <span class="wtf-type">Országos jelenség</span>
+            <h3 class="wtf-title">Bunkerek mindenhol</h3>
             <p class="wtf-desc">
-              Albánia egyik legfurább öröksége a bunkerek országos jelenléte:
-              a betonkupolák nem csak múzeumban, hanem a tájban is felbukkannak.
+              Albánia egyik legfurább öröksége: betonkupolák a tájban, tengerparton, utak mellett, városok környékén.
             </p>
-            <div class="wtf-tags">
-              <span class="wtf-tag">Albánia</span>
-              <span class="wtf-tag">örökség</span>
-              <span class="wtf-tag">wtf-faktor</span>
+            <div class="tags">
+              <span class="tag">Albánia</span>
+              <span class="tag">örökség</span>
+              <span class="tag">valós WTF</span>
             </div>
           </div>
         </article>
       </div>
 
-      <div class="cta-card">
+      <article class="footer-card">
         <div>
-          <h3>Kövi kör: képek + napi bontás</h3>
+          <h3>Régi Funday oldal</h3>
           <p>
-            Ide logikusan a következő bővítés: résztvevői képkártyák, napi itinerary, rooftop / étterem / bár shortlist,
-            és egy még erősebb vizuális montázs.
+            A korábbi Funday 2025 oldal változatlanul elérhető külön archív oldalként.
           </p>
         </div>
-        <a class="btn btn-primary" href="#crew">Crew részhez</a>
-      </div>
+        <a class="btn btn-primary" href="/funday-2025/">Régi oldal megnyitása</a>
+      </article>
     </div>
   </section>
+
 </main>
 
 <footer>
   <div class="wrap footer-line">
     <span>© Funday.hu · Tirana 2026</span>
-    <span>
-      <a href="/funday-2025/">Archív Funday 2025</a>
-    </span>
+    <span><a href="/funday-2025/">Régi Funday 2025 oldal</a></span>
   </div>
 </footer>
 
