@@ -735,6 +735,75 @@
       font-size:15px;
     }
 
+    .stay-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .stay-card{
+      background:#fff;
+      border:1px solid rgba(11,35,70,.10);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      padding:20px;
+      min-height:210px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .stay-night{
+      width:max-content;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(230,184,92,.16);
+      color:var(--navy);
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+    }
+
+    .stay-card h3{
+      margin:0;
+      color:var(--navy);
+      font-size:23px;
+      line-height:1.08;
+      letter-spacing:-.045em;
+    }
+
+    .stay-card h3 a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .stay-card h3 a:hover{
+      text-decoration:underline;
+      text-underline-offset:4px;
+    }
+
+    .stay-address,
+    .stay-phone{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.45;
+      font-weight:750;
+    }
+
+    .stay-address a,
+    .stay-phone a{
+      color:var(--navy2);
+      font-weight:900;
+    }
+
+    .stay-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+    }
+
     .crew-card{
       padding:24px;
       background:linear-gradient(135deg,var(--navy),var(--navy2));
@@ -779,7 +848,7 @@
 
     @media(max-width:1024px){
       .hero-grid{grid-template-columns:1fr}
-      .place-grid,.obscura-grid,.durres-grid{grid-template-columns:1fr}
+      .place-grid,.obscura-grid,.durres-grid,.stay-grid{grid-template-columns:1fr}
       .map-shell,.map-shell iframe{height:500px;min-height:500px}
     }
 
@@ -1033,6 +1102,77 @@
           </a>
         </div>
       </article>
+    </div>
+  </section>
+
+
+  <section id="stays">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Szállás</h2>
+        </div>
+        <div class="section-tag">3 éj</div>
+      </div>
+
+      <div class="stay-grid">
+        <article class="stay-card">
+          <span class="stay-night">1. este</span>
+          <h3>
+            <a href="https://www.booking.com/hotel/al/albania-haven-apartment-center-of-tirana.html" target="_blank" rel="noopener">
+              Albania Haven Apartment - Center of Tirana
+            </a>
+          </h3>
+          <div class="stay-address">
+            <a href="https://www.google.com/maps/search/?api=1&query=Rruga%20Kajo%20Karafili%2022%2C%20Tirana" target="_blank" rel="noopener">
+              Rruga Kajo Karafili 22, Tirana
+            </a>
+          </div>
+          <div class="stay-phone">
+            <a href="tel:+355697320892">+355 69 732 0892</a>
+          </div>
+          <div class="stay-actions">
+            <a class="mini-btn map" href="https://www.booking.com/hotel/al/albania-haven-apartment-center-of-tirana.html" target="_blank" rel="noopener">Szállás</a>
+            <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=Rruga%20Kajo%20Karafili%2022%2C%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+          </div>
+        </article>
+
+        <article class="stay-card">
+          <span class="stay-night">2. este</span>
+          <h3>
+            <a href="https://www.airbnb.hu/rooms/1700775688861078458?c=.pi80.pkYm9va2luZy9ndWVzdC9SZXNlcnZhdGlvbkNvbmZpcm1hdGlvblRlbXBsYXRl&euid=f6985f60-49b7-1b64-3882-cf4a7e5bf062&source_impression_id=p3_1783290790_P3kn6xM3W-hGIu6d" target="_blank" rel="noopener">
+              Tirana Skyline | 5BR Near Air Albania Stadium
+            </a>
+          </h3>
+          <div class="stay-address">
+            <a href="https://www.google.com/maps/search/?api=1&query=Rruga%20Faik%20Konica%2C%20Tirana" target="_blank" rel="noopener">
+              Rruga Faik Konica, Tirana
+            </a>
+          </div>
+          <div class="stay-actions">
+            <a class="mini-btn map" href="https://www.airbnb.hu/rooms/1700775688861078458?c=.pi80.pkYm9va2luZy9ndWVzdC9SZXNlcnZhdGlvbkNvbmZpcm1hdGlvblRlbXBsYXRl&euid=f6985f60-49b7-1b64-3882-cf4a7e5bf062&source_impression_id=p3_1783290790_P3kn6xM3W-hGIu6d" target="_blank" rel="noopener">Szállás</a>
+            <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=Rruga%20Faik%20Konica%2C%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+          </div>
+        </article>
+
+        <article class="stay-card">
+          <span class="stay-night">3. este</span>
+          <h3>
+            <a href="https://www.airbnb.com/rooms/30412395" target="_blank" rel="noopener">
+              Top Privacy Eco Villa
+            </a>
+          </h3>
+          <div class="stay-address">
+            <a href="https://www.google.com/maps/search/?api=1&query=Rruga%20Dervish%20Shaba%2010%2C%20Mjull-Bathore%2C%20Albania" target="_blank" rel="noopener">
+              Rruga Dervish Shaba 10, Mjull-Bathore, Albania
+            </a>
+          </div>
+          <div class="stay-actions">
+            <a class="mini-btn map" href="https://www.airbnb.com/rooms/30412395" target="_blank" rel="noopener">Szállás</a>
+            <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=Rruga%20Dervish%20Shaba%2010%2C%20Mjull-Bathore%2C%20Albania" target="_blank" rel="noopener">Google Maps</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
