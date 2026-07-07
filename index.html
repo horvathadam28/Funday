@@ -531,58 +531,39 @@
       margin-top:auto;
     }
 
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
     .feature-card{
       overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
     }
-    .feature-photo{
-      height:290px;
-      background:
-        linear-gradient(135deg, rgba(11,35,70,.92), rgba(29,91,152,.72)),
-        radial-gradient(circle at 70% 20%, var(--gold2), transparent 36%);
-      position:relative;
-      overflow:hidden;
+
+    .feature-map{
+      height:210px;
+      background:#eef3f9;
+      border-bottom:1px solid rgba(11,35,70,.10);
     }
-    .feature-photo:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 70% 18%, rgba(255,217,138,.55), transparent 18%),
-        linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.18));
-    }
-    .feature-photo.tepamja:after{
-      content:"TE PAMJA";
-      position:absolute;
-      left:20px;
-      bottom:18px;
-      color:#fff;
-      font-size:34px;
-      font-weight:950;
-      letter-spacing:-.04em;
-      z-index:2;
-    }
-    .feature-photo.oda{
-      background:
-        linear-gradient(135deg, #4a2d16, #aa6f34),
-        radial-gradient(circle at 75% 20%, #ffd590, transparent 36%);
-    }
-    .feature-photo.oda:after{
-      content:"ODA";
-      position:absolute;
-      left:20px;
-      bottom:18px;
-      color:#fff;
-      font-size:34px;
-      font-weight:950;
-      letter-spacing:-.04em;
-      z-index:2;
+
+    .feature-map iframe{
+      display:block;
+      width:100%;
+      height:100%;
+      border:0;
+      filter:saturate(.95) contrast(.98);
     }
 
     .feature-body{
-      padding:20px;
+      padding:18px;
       display:flex;
       flex-direction:column;
       gap:12px;
+      flex:1;
     }
     .feature-top{
       display:flex;
@@ -746,7 +727,7 @@
     }
 
     @media(max-width:1100px){
-      .flights-grid,.plan-grid,.stay-grid,.obscura-grid{grid-template-columns:1fr}
+      .flights-grid,.plan-grid,.stay-grid,.obscura-grid,.feature-grid{grid-template-columns:1fr}
     }
     @media(max-width:1024px){
       .hero-grid{grid-template-columns:1fr}
@@ -823,7 +804,7 @@
       </div>
 
       <div class="hero-visual">
-        <img src="tirana-weekend-2026.png" alt="Tirana Weekend 2026">
+        <img src="tirana-weekend-2026.png?v=9" onerror="this.onerror=null;this.src='tirana-weekend-2026-9friends.png?v=9';" alt="Tirana Weekend 2026">
         <div class="poster-note">
           <strong>Tirana Weekend 2026</strong>
           <span>July 10–13 · Day and Night</span>
@@ -1082,6 +1063,7 @@
     </div>
   </section>
 
+
   <section id="drinks">
     <div class="wrap">
       <div class="section-head">
@@ -1092,27 +1074,130 @@
         <div class="section-tag">ITAL</div>
       </div>
 
-      <article class="feature-card">
-        <div class="feature-photo tepamja"></div>
-        <div class="feature-body">
-          <div class="feature-top">
-            <h3 class="feature-title">Te Pamja</h3>
-            <div class="feature-badge">bar / view</div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=Te%20Pamja%20Tirana&output=embed" loading="lazy" title="Te Pamja térkép"></iframe>
           </div>
-          <div class="feature-copy">Panorámás bár Tirana felett, esti körre és kilátásra.</div>
-          <div class="feature-address">
-            <a href="https://maps.app.goo.gl/mkYew2Kzaa1UAsoi7" target="_blank" rel="noopener">
-              Farkë / Sauk, Tirana
-            </a>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">Te Pamja</h3>
+              <div class="feature-badge">view</div>
+            </div>
+            <div class="feature-copy">Panorámás esti pont Tirana felett.</div>
+            <div class="feature-address">
+              <a href="https://maps.app.goo.gl/mkYew2Kzaa1UAsoi7" target="_blank" rel="noopener">Google Maps cím</a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://maps.app.goo.gl/mkYew2Kzaa1UAsoi7" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://www.instagram.com/te.pamja/" target="_blank" rel="noopener">Oldal / Instagram</a>
+            </div>
           </div>
-          <div class="feature-links">
-            <a class="mini-btn map" href="https://maps.app.goo.gl/mkYew2Kzaa1UAsoi7" target="_blank" rel="noopener">Google Maps</a>
-            <a class="mini-btn" href="https://www.instagram.com/te.pamja/" target="_blank" rel="noopener">Oldal / Instagram</a>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=Sky%20Club%20360%20Tirana&output=embed" loading="lazy" title="Sky Club 360 térkép"></iframe>
           </div>
-        </div>
-      </article>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">Sky Club 360°</h3>
+              <div class="feature-badge">360°</div>
+            </div>
+            <div class="feature-copy">Klasszikus panorámás első ital.</div>
+            <div class="feature-address">
+              <a href="https://www.google.com/maps/search/?api=1&query=Sky%20Club%20360%20Tirana" target="_blank" rel="noopener">Google Maps cím</a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Sky%20Club%20360%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://skyhotel.al/" target="_blank" rel="noopener">Honlap</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=The%20View%20Lounge%20Tirana&output=embed" loading="lazy" title="The View Lounge térkép"></iframe>
+          </div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">The View Lounge</h3>
+              <div class="feature-badge">lounge</div>
+            </div>
+            <div class="feature-copy">Magasabb városfényes koktélpont.</div>
+            <div class="feature-address">
+              <a href="https://www.google.com/maps/search/?api=1&query=The%20View%20Lounge%20Tirana" target="_blank" rel="noopener">Google Maps cím</a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=The%20View%20Lounge%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://www.google.com/search?q=The+View+Lounge+Tirana" target="_blank" rel="noopener">Honlap / keresés</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=Taproom%20by%20Pan%27s%20Tirana&output=embed" loading="lazy" title="Taproom by Pan's térkép"></iframe>
+          </div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">Taproom by Pan’s</h3>
+              <div class="feature-badge">craft</div>
+            </div>
+            <div class="feature-copy">Craft sör, flight, helyi főzde-vonal.</div>
+            <div class="feature-address">
+              <a href="https://www.google.com/maps/search/?api=1&query=Taproom%20by%20Pan%27s%20Tirana" target="_blank" rel="noopener">Google Maps cím</a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Taproom%20by%20Pan%27s%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://www.google.com/search?q=Taproom+by+Pan%27s+Tirana" target="_blank" rel="noopener">Honlap / keresés</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=Hops%20Bar%20Tirana&output=embed" loading="lazy" title="Hops Bar térkép"></iframe>
+          </div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">Hops Bar</h3>
+              <div class="feature-badge">beer</div>
+            </div>
+            <div class="feature-copy">Lazább sörös este, pub irány.</div>
+            <div class="feature-address">
+              <a href="https://www.google.com/maps/search/?api=1&query=Hops%20Bar%20Tirana" target="_blank" rel="noopener">Google Maps cím</a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Hops%20Bar%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://www.google.com/search?q=Hops+Bar+Tirana" target="_blank" rel="noopener">Honlap / keresés</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=Komiteti%20Tirana%20Hemingway%20Bar%20Tirana&output=embed" loading="lazy" title="Komiteti Hemingway térkép"></iframe>
+          </div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">Komiteti / Hemingway</h3>
+              <div class="feature-badge">character</div>
+            </div>
+            <div class="feature-copy">Raki-múzeum vagy rum/jazz. Sztoris hely.</div>
+            <div class="feature-address">
+              <a href="https://www.google.com/maps/search/?api=1&query=Komiteti%20Tirana%20Hemingway%20Bar%20Tirana" target="_blank" rel="noopener">Google Maps cím</a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Komiteti%20Tirana%20Hemingway%20Bar%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://www.google.com/search?q=Komiteti+Hemingway+Bar+Tirana" target="_blank" rel="noopener">Honlap / keresés</a>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
+
 
   <section id="restaurants">
     <div class="wrap">
@@ -1120,38 +1205,62 @@
         <div>
           <h2>Éttermek</h2>
         </div>
-        <div class="section-tag">KOMOLY FOGÁSOK</div>
+        <div class="section-tag">KAJA</div>
       </div>
 
-      <article class="feature-card">
-        <div class="feature-photo oda"></div>
-        <div class="feature-body">
-          <div class="feature-top">
-            <h3 class="feature-title">Oda – Traditional Albanian Restaurant</h3>
-            <div class="feature-badge">traditional</div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=Oda%20Traditional%20Albanian%20Restaurant%20Tirana&output=embed" loading="lazy" title="Oda térkép"></iframe>
           </div>
-          <div class="feature-copy">Pazari i Ri környéki klasszikus albán étterem.</div>
-          <div class="feature-address">
-            <a href="https://maps.app.goo.gl/9P2fdy9kCndDGChV9" target="_blank" rel="noopener">
-              Shenasi Dishnica Street, Pazari i Ri, Tiranë
-            </a>
-          </div>
-          <div class="feature-links">
-            <a class="mini-btn map" href="https://maps.app.goo.gl/9P2fdy9kCndDGChV9" target="_blank" rel="noopener">Google Maps</a>
-            <a class="mini-btn" href="https://odarestaurant.al/" target="_blank" rel="noopener">Honlap</a>
-          </div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">Oda – Traditional Albanian Restaurant</h3>
+              <div class="feature-badge">traditional</div>
+            </div>
+            <div class="feature-copy">Pazari i Ri környéki klasszikus albán étterem.</div>
+            <div class="feature-address">
+              <a href="https://maps.app.goo.gl/9P2fdy9kCndDGChV9" target="_blank" rel="noopener">
+                Google Maps cím
+              </a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://maps.app.goo.gl/9P2fdy9kCndDGChV9" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://odarestaurant.al/" target="_blank" rel="noopener">Honlap</a>
+            </div>
 
-          <div class="dish-list">
-            <span class="dish">Kokë Qingji · bárányfej</span>
-            <span class="dish">Kukurrec · báránybelek</span>
-            <span class="dish">Kolloface · belsőségek + rizs</span>
-            <span class="dish">Harapash · kukorica + belsőség</span>
-            <span class="dish">Tavë Plënci · báránygyomor</span>
-            <span class="dish">Mish Qingji në Sac</span>
-            <span class="dish">Tavë Dheu</span>
+            <div class="dish-list">
+              <span class="dish">Kokë Qingji · bárányfej</span>
+              <span class="dish">Kukurrec · báránybelek</span>
+              <span class="dish">Kolloface · belsőségek + rizs</span>
+              <span class="dish">Harapash · kukorica + belsőség</span>
+              <span class="dish">Tavë Plënci · báránygyomor</span>
+              <span class="dish">Mish Qingji në Sac</span>
+              <span class="dish">Tavë Dheu</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=ARKA%20Rooftop%20Tirana&output=embed" loading="lazy" title="ARKA Rooftop térkép"></iframe>
+          </div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title">ARKA Rooftop</h3>
+              <div class="feature-badge">rooftop</div>
+            </div>
+            <div class="feature-copy">Rooftop vacsora, skyline, nem túlöltözős prémium.</div>
+            <div class="feature-address">
+              <a href="https://www.google.com/maps/search/?api=1&query=ARKA%20Rooftop%20Tirana" target="_blank" rel="noopener">Google Maps cím</a>
+            </div>
+            <div class="feature-links">
+              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=ARKA%20Rooftop%20Tirana" target="_blank" rel="noopener">Google Maps</a>
+              <a class="mini-btn" href="https://www.google.com/search?q=ARKA+Rooftop+Tirana" target="_blank" rel="noopener">Honlap / keresés</a>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
