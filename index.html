@@ -840,6 +840,47 @@
       .plane-mid{display:none}
       .map-shell,.map-shell iframe{height:420px;min-height:420px}
     }
+  
+    .hero-quick-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:10px;
+      margin-top:30px;
+      max-width:640px;
+    }
+
+    .hero-quick-buttons .btn{
+      min-height:46px;
+      padding:11px 17px;
+      border-radius:15px;
+      font-size:15px;
+      letter-spacing:-.01em;
+      box-shadow:0 8px 18px rgba(11,35,70,.06);
+    }
+
+    .hero-quick-buttons .btn-secondary{
+      background:#fff;
+      border-color:rgba(11,35,70,.13);
+    }
+
+    .hero-quick-buttons .btn-primary{
+      box-shadow:0 12px 24px rgba(11,35,70,.16);
+    }
+
+    @media(max-width:760px){
+      .hero-quick-buttons{
+        gap:9px;
+        margin-top:24px;
+      }
+
+      .hero-quick-buttons .btn{
+        min-height:43px;
+        padding:10px 14px;
+        font-size:14px;
+      }
+    }
+
   </style>
 </head>
 
@@ -883,15 +924,15 @@
 
         <h1>FUN will be FUN.<br>Day and Night.</h1>
 
-        <nav class="hero-nav" aria-label="Gyors navigáció">
-          <a href="#map"><span>Térkép</span></a>
-          <a href="#flights"><span>Járatok</span></a>
-          <a href="#plan"><span>Útiterv</span></a>
-          <a href="#stays"><span>Szállás</span></a>
-          <a href="#drinks"><span>Ital</span></a>
-          <a href="#restaurants"><span>Éttermek</span></a>
-          <a href="#music"><span>Zene</span></a>
-        </nav>
+        <div class="hero-actions hero-quick-buttons" aria-label="Gyors navigáció">
+          <a class="btn btn-primary" href="#map">Térkép</a>
+          <a class="btn btn-secondary" href="#flights">Járatok</a>
+          <a class="btn btn-secondary" href="#plan">Útiterv</a>
+          <a class="btn btn-secondary" href="#stays">Szállás</a>
+          <a class="btn btn-secondary" href="#drinks">ITAL</a>
+          <a class="btn btn-secondary" href="#restaurants">Éttermek</a>
+          <a class="btn btn-secondary" href="#music">Zene</a>
+        </div>
       </div>
 
       <div class="hero-visual">
