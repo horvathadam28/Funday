@@ -199,6 +199,57 @@
       margin-top:28px;
     }
 
+    .hero-nav{
+      display:flex;
+      align-items:center;
+      gap:0;
+      margin-top:30px;
+      padding:13px 0;
+      border-top:1px solid rgba(11,35,70,.16);
+      border-bottom:1px solid rgba(11,35,70,.16);
+      overflow-x:auto;
+      white-space:nowrap;
+      scrollbar-width:none;
+    }
+
+    .hero-nav::-webkit-scrollbar{
+      display:none;
+    }
+
+    .hero-nav a{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      color:var(--navy);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.105em;
+      text-transform:uppercase;
+      padding:0 15px;
+      line-height:1;
+    }
+
+    .hero-nav a:first-child{
+      padding-left:0;
+    }
+
+    .hero-nav a:not(:last-child)::after{
+      content:"";
+      position:absolute;
+      right:0;
+      width:1px;
+      height:12px;
+      background:rgba(11,35,70,.20);
+    }
+
+    .hero-nav a:hover{
+      color:var(--navy3);
+    }
+
+    .hero-nav a:hover span{
+      box-shadow:inset 0 -2px 0 rgba(230,184,92,.85);
+    }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -832,24 +883,15 @@
 
         <h1>FUN will be FUN.<br>Day and Night.</h1>
 
-        <p class="lead">
-          Tirana weekend: járatok, térkép, rooftop, sör, szállás, kaja és néhány furcsa városi pont egy helyen.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#map">Térkép</a>
-          <a class="btn btn-secondary" href="#flights">Járatok</a>
-          <a class="btn btn-secondary" href="#drinks">ITAL</a>
-          <a class="btn btn-secondary" href="#restaurants">Éttermek</a>
-          <a class="btn btn-secondary" href="#music">Zene</a>
-        </div>
-
-        <div class="hero-meta">
-          <span class="meta-pill">2026.07.10–07.13</span>
-          <span class="meta-pill">BUD - TIA - BUD</span>
-          <span class="meta-pill">9 fő</span>
-          <span class="meta-pill">Tirana + Durrës</span>
-        </div>
+        <nav class="hero-nav" aria-label="Gyors navigáció">
+          <a href="#map"><span>Térkép</span></a>
+          <a href="#flights"><span>Járatok</span></a>
+          <a href="#plan"><span>Útiterv</span></a>
+          <a href="#stays"><span>Szállás</span></a>
+          <a href="#drinks"><span>Ital</span></a>
+          <a href="#restaurants"><span>Éttermek</span></a>
+          <a href="#music"><span>Zene</span></a>
+        </nav>
       </div>
 
       <div class="hero-visual">
