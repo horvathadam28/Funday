@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081a34"/>
+      <stop offset="0.58" stop-color="#123865"/>
+      <stop offset="1" stop-color="#1d5b98"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.15" r="0.5">
+      <stop offset="0" stop-color="#ffd98a" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffd98a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <circle cx="1280" cy="150" r="140" fill="#e6b85c" opacity="0.15"/>
+  <circle cx="1280" cy="150" r="78" fill="#e6b85c" opacity="0.22"/>
+  <path d="M0 710 C230 600 380 760 590 650 C820 530 940 730 1160 610 C1360 500 1480 590 1600 520 L1600 900 L0 900 Z"
+        fill="#061428" opacity="0.8"/>
+  <text x="110" y="340" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="170" font-weight="900" letter-spacing="-8">
+    FUNDAY
+  </text>
+  <text x="110" y="505" fill="#e6b85c" font-family="Arial, Helvetica, sans-serif" font-size="155" font-weight="900" letter-spacing="-7">
+    2026
+  </text>
+  <text x="118" y="600" fill="#ffffff" opacity="0.78" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">
+    FUN will be FUN. Day and Night.
+  </text>
+  <text x="118" y="785" fill="#ffffff" opacity="0.54" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">
+    Részletek hamarosan
+  </text>
+</svg>
