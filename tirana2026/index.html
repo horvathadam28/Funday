@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Funday.hu – Tirana Weekend 2026</title>
-  <meta name="description" content="Tirana Weekend 2026 – járatok, térkép, rooftop, craft beer, Durrës és camera obscura Tirana.">
+  <meta name="description" content="Tirana Weekend 2026 – járatok, útiterv, térkép, szállás, ital, éttermek és camera obscura.">
   <meta name="theme-color" content="#0b2346">
 
   <style>
@@ -14,16 +14,11 @@
       --navy3:#1d5b98;
       --gold:#e6b85c;
       --gold2:#ffd98a;
-      --cream:#fff7e6;
       --paper:#ffffff;
       --ink:#102033;
       --muted:#617087;
-      --line:rgba(11,35,70,.13);
       --soft:#f4f7fb;
-      --green:#148a63;
-      --red:#b73535;
       --shadow:0 22px 64px rgba(11,35,70,.14);
-      --radius:28px;
       --max:1180px;
     }
 
@@ -119,7 +114,6 @@
 
     .hamburger span:before{position:absolute;top:-7px}
     .hamburger span:after{position:absolute;top:7px}
-
     #menu-toggle:checked + .hamburger span{background:transparent}
     #menu-toggle:checked + .hamburger span:before{top:0;transform:rotate(45deg)}
     #menu-toggle:checked + .hamburger span:after{top:0;transform:rotate(-45deg)}
@@ -136,9 +130,7 @@
       box-shadow:var(--shadow);
       overflow:hidden;
     }
-
     #menu-toggle:checked ~ .menu{display:block}
-
     .menu a{
       display:block;
       padding:15px 16px;
@@ -147,26 +139,22 @@
       font-weight:850;
       border-bottom:1px solid rgba(11,35,70,.08);
     }
-
     .menu a:last-child{border-bottom:0}
     .menu a:hover{background:#f7f9fc}
 
     .hero{padding:34px 0 22px}
-
     .hero-grid{
       display:grid;
       grid-template-columns:.82fr 1.18fr;
       gap:24px;
       align-items:stretch;
     }
-
     .hero-copy{
       display:flex;
       flex-direction:column;
       justify-content:center;
       padding:6px 0;
     }
-
     .eyebrow{
       width:max-content;
       display:inline-flex;
@@ -180,7 +168,6 @@
       font-size:14px;
       margin-bottom:18px;
     }
-
     .eyebrow-dot{
       width:9px;
       height:9px;
@@ -212,6 +199,57 @@
       margin-top:28px;
     }
 
+    .hero-nav{
+      display:flex;
+      align-items:center;
+      gap:0;
+      margin-top:30px;
+      padding:13px 0;
+      border-top:1px solid rgba(11,35,70,.16);
+      border-bottom:1px solid rgba(11,35,70,.16);
+      overflow-x:auto;
+      white-space:nowrap;
+      scrollbar-width:none;
+    }
+
+    .hero-nav::-webkit-scrollbar{
+      display:none;
+    }
+
+    .hero-nav a{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      color:var(--navy);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.105em;
+      text-transform:uppercase;
+      padding:0 15px;
+      line-height:1;
+    }
+
+    .hero-nav a:first-child{
+      padding-left:0;
+    }
+
+    .hero-nav a:not(:last-child)::after{
+      content:"";
+      position:absolute;
+      right:0;
+      width:1px;
+      height:12px;
+      background:rgba(11,35,70,.20);
+    }
+
+    .hero-nav a:hover{
+      color:var(--navy3);
+    }
+
+    .hero-nav a:hover span{
+      box-shadow:inset 0 -2px 0 rgba(230,184,92,.85);
+    }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -223,16 +261,13 @@
       border:1px solid rgba(11,35,70,.12);
       transition:.18s ease;
     }
-
     .btn:hover{transform:translateY(-1px)}
-
     .btn-primary{
       color:#fff;
       border:0;
       background:linear-gradient(135deg,var(--navy),var(--navy3));
       box-shadow:0 12px 24px rgba(11,35,70,.16);
     }
-
     .btn-secondary{
       color:var(--navy);
       background:#fff;
@@ -244,7 +279,6 @@
       gap:10px;
       margin-top:26px;
     }
-
     .meta-pill{
       padding:9px 12px;
       border-radius:999px;
@@ -265,13 +299,11 @@
       box-shadow:var(--shadow);
       border:1px solid rgba(11,35,70,.10);
     }
-
     .hero-visual img{
       width:100%;
       height:100%;
       object-fit:cover;
     }
-
     .hero-visual:after{
       content:"";
       position:absolute;
@@ -279,7 +311,6 @@
       background:linear-gradient(180deg,rgba(4,18,42,.05) 0%,rgba(4,18,42,.22) 100%);
       pointer-events:none;
     }
-
     .poster-note{
       position:absolute;
       left:18px;
@@ -292,13 +323,11 @@
       backdrop-filter:blur(10px);
       box-shadow:0 14px 30px rgba(0,0,0,.20);
     }
-
     .poster-note strong{
       display:block;
       font-size:15px;
       font-weight:950;
     }
-
     .poster-note span{
       display:block;
       margin-top:4px;
@@ -316,14 +345,12 @@
       gap:22px;
       margin-bottom:18px;
     }
-
     .section-head h2{
       margin:0;
       color:var(--navy);
       font-size:clamp(30px,4vw,46px);
       letter-spacing:-.055em;
     }
-
     .section-head p{
       margin:8px 0 0;
       max-width:780px;
@@ -331,7 +358,6 @@
       line-height:1.55;
       font-size:17px;
     }
-
     .section-tag{
       white-space:nowrap;
       padding:8px 12px;
@@ -343,20 +369,34 @@
       font-weight:850;
     }
 
-    .flights-grid{
+    .flights-grid,
+    .plan-grid,
+    .stay-grid,
+    .obscura-grid{
       display:grid;
-      grid-template-columns:1fr 1fr 1fr;
       gap:18px;
     }
+    .flights-grid{grid-template-columns:1fr 1fr 1fr}
+    .plan-grid{grid-template-columns:repeat(4,1fr)}
+    .stay-grid{grid-template-columns:repeat(3,1fr)}
+    .obscura-grid{grid-template-columns:repeat(3,1fr)}
 
-    .flight-card{
+    .flight-card,
+    .plan-card,
+    .map-card,
+    .stay-card,
+    .feature-card,
+    .obscura-card,
+    .crew-card{
       background:#fff;
       border:1px solid rgba(11,35,70,.10);
-      border-radius:28px;
-      overflow:hidden;
+      border-radius:26px;
       box-shadow:var(--shadow);
     }
 
+    .flight-card{
+      overflow:hidden;
+    }
     .flight-top{
       display:flex;
       align-items:center;
@@ -366,11 +406,9 @@
       background:linear-gradient(135deg,var(--navy),var(--navy2));
       color:#fff;
     }
-
     .flight-card.secondary .flight-top{
       background:linear-gradient(135deg,#4d3b15,#86672c);
     }
-
     .flight-label{
       font-size:12px;
       text-transform:uppercase;
@@ -378,7 +416,6 @@
       font-weight:950;
       opacity:.9;
     }
-
     .airline-pill{
       padding:8px 10px;
       border-radius:999px;
@@ -387,16 +424,13 @@
       font-weight:950;
       white-space:nowrap;
     }
-
     .flight-body{padding:22px 18px}
-
     .route-row{
       display:grid;
       grid-template-columns:1fr auto 1fr;
       align-items:center;
       gap:12px;
     }
-
     .airport small{
       display:block;
       margin-bottom:4px;
@@ -404,7 +438,6 @@
       font-size:13px;
       font-weight:750;
     }
-
     .airport strong{
       display:block;
       color:var(--navy);
@@ -412,7 +445,6 @@
       line-height:1;
       letter-spacing:-.055em;
     }
-
     .airport.right{text-align:right}
     .plane-mid{
       text-align:center;
@@ -420,7 +452,6 @@
       font-size:24px;
       font-weight:950;
     }
-
     .times{
       display:grid;
       grid-template-columns:1fr auto 1fr;
@@ -430,25 +461,19 @@
       padding-top:16px;
       border-top:1px dashed rgba(11,35,70,.18);
     }
-
-    .time-block small,
-    .duration small{
+    .time-block small,.duration small{
       display:block;
       margin-bottom:6px;
       color:var(--muted);
       font-size:12px;
       font-weight:750;
     }
-
     .time-block strong{
       display:block;
-      color:var(--text);
       font-size:28px;
       letter-spacing:-.045em;
     }
-
     .time-block.right{text-align:right}
-
     .duration{text-align:center}
     .duration strong{
       display:block;
@@ -456,7 +481,6 @@
       font-size:22px;
       letter-spacing:-.04em;
     }
-
     .flight-footer{
       display:flex;
       flex-wrap:wrap;
@@ -468,15 +492,29 @@
       font-weight:750;
     }
 
-    .map-card,
-    .place-card,
-    .obscura-card,
-    .durres-card,
-    .crew-card{
-      background:#fff;
-      border:1px solid rgba(11,35,70,.10);
-      border-radius:26px;
-      box-shadow:var(--shadow);
+    .plan-card{
+      padding:20px;
+      min-height:170px;
+      background:linear-gradient(135deg,#ffffff 0%, #f7fbff 100%);
+    }
+    .plan-date{
+      width:max-content;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(230,184,92,.16);
+      color:var(--navy);
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+      margin-bottom:14px;
+    }
+    .plan-card h3{
+      margin:0;
+      color:var(--navy);
+      font-size:24px;
+      line-height:1.1;
+      letter-spacing:-.045em;
     }
 
     .map-card{padding:12px;border-radius:30px}
@@ -487,7 +525,6 @@
       background:#eef3f9;
       border:1px solid rgba(11,35,70,.08);
     }
-
     .map-shell iframe{
       display:block;
       width:100%;
@@ -495,134 +532,126 @@
       border:0;
     }
 
-    .map-meta{
+    .stay-card{
+      padding:20px;
+      min-height:210px;
       display:flex;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      padding:14px 6px 2px;
+      flex-direction:column;
+      gap:12px;
+    }
+    .stay-night{
+      width:max-content;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(230,184,92,.16);
+      color:var(--navy);
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+    }
+    .stay-card h3{
+      margin:0;
+      color:var(--navy);
+      font-size:23px;
+      line-height:1.08;
+      letter-spacing:-.045em;
+    }
+    .stay-card h3 a{
+      color:inherit;
+      text-decoration:none;
+    }
+    .stay-card h3 a:hover{
+      text-decoration:underline;
+      text-underline-offset:4px;
+    }
+    .stay-address,.stay-phone,.feature-address,.feature-copy{
       color:var(--muted);
-      font-size:14px;
+      font-size:15px;
+      line-height:1.45;
       font-weight:750;
     }
-
-    .map-meta a{
+    .stay-address a,.stay-phone a,.feature-address a{
       color:var(--navy2);
       font-weight:900;
     }
+    .stay-actions,.feature-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+    }
 
-    .place-grid{
+    .feature-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
     }
 
-    .place-card{
+    .feature-card{
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .feature-map{
+      height:210px;
+      background:#eef3f9;
+      border-bottom:1px solid rgba(11,35,70,.10);
+    }
+
+    .feature-map iframe{
+      display:block;
+      width:100%;
+      height:100%;
+      border:0;
+      filter:saturate(.95) contrast(.98);
+    }
+
+    .feature-body{
       padding:18px;
-      min-height:285px;
       display:flex;
       flex-direction:column;
-      overflow:hidden;
-      position:relative;
-    }
-
-    .place-card:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 82% 0%, rgba(230,184,92,.20), transparent 28%),
-        linear-gradient(180deg, rgba(11,35,70,.025), transparent);
-      pointer-events:none;
-    }
-
-    .place-visual{
-      height:86px;
-      border-radius:18px;
-      margin-bottom:16px;
-      background:
-        linear-gradient(135deg, rgba(11,35,70,.92), rgba(29,91,152,.72)),
-        radial-gradient(circle at 70% 20%, var(--gold2), transparent 36%);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .place-visual:before{
-      content:"";
-      position:absolute;
-      left:16px;
-      right:16px;
-      bottom:16px;
-      height:2px;
-      background:rgba(255,255,255,.55);
-      box-shadow:
-        35px -16px 0 rgba(255,255,255,.35),
-        85px -28px 0 rgba(255,255,255,.28),
-        145px -12px 0 rgba(255,255,255,.38),
-        205px -34px 0 rgba(255,255,255,.22);
-    }
-
-    .place-visual.beer{
-      background:
-        linear-gradient(135deg, #4c2f12, #e2a447),
-        radial-gradient(circle at 70% 25%, #fff0b8, transparent 32%);
-    }
-
-    .place-visual.character{
-      background:
-        linear-gradient(135deg, #15151c, #793d55),
-        radial-gradient(circle at 74% 24%, #fff0b8, transparent 32%);
-    }
-
-    .place-content{
-      position:relative;
-      z-index:1;
-      display:flex;
-      flex-direction:column;
+      gap:12px;
       flex:1;
     }
-
-    .place-top{
+    .feature-top{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap:12px;
-      margin-bottom:10px;
+      gap:14px;
     }
-
-    .place-card h3{
+    .feature-title{
       margin:0;
       color:var(--navy);
-      font-size:23px;
-      line-height:1.06;
+      font-size:28px;
+      line-height:1.05;
       letter-spacing:-.045em;
     }
-
-    .place-badge{
+    .feature-title a{
+      color:inherit;
+      text-decoration:none;
+    }
+    .feature-title a:hover{
+      text-decoration:underline;
+      text-underline-offset:4px;
+    }
+    .feature-badge{
       white-space:nowrap;
-      padding:7px 9px;
+      padding:7px 10px;
       border-radius:999px;
-      background:rgba(230,184,92,.18);
+      background:rgba(230,184,92,.16);
       color:var(--navy);
-      font-size:11px;
+      font-size:12px;
       font-weight:950;
       text-transform:uppercase;
       letter-spacing:.06em;
     }
-
-    .place-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.5;
-      font-size:15px;
-    }
-
-    .place-actions{
+    .feature-links{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:auto;
-      padding-top:16px;
     }
 
     .mini-btn{
@@ -638,17 +667,26 @@
       font-size:12px;
       font-weight:900;
     }
-
     .mini-btn.map{
       color:#fff;
       background:linear-gradient(135deg,var(--navy),var(--navy3));
       border:0;
     }
 
-    .obscura-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
+    .dish-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      padding-top:6px;
+    }
+    .dish{
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f6f8fb;
+      border:1px solid rgba(11,35,70,.09);
+      color:var(--navy);
+      font-size:12px;
+      font-weight:900;
     }
 
     .obscura-card{
@@ -660,13 +698,11 @@
         radial-gradient(circle at 88% 10%, rgba(11,35,70,.12), transparent 30%),
         #fff;
     }
-
     .obscura-card:nth-child(2n){
       background:
         radial-gradient(circle at 88% 10%, rgba(230,184,92,.18), transparent 30%),
         #fffaf0;
     }
-
     .obscura-card:after{
       content:"";
       position:absolute;
@@ -678,7 +714,6 @@
       background:rgba(11,35,70,.08);
       border:1px solid rgba(11,35,70,.08);
     }
-
     .obscura-type{
       display:inline-flex;
       margin-bottom:13px;
@@ -691,7 +726,6 @@
       text-transform:uppercase;
       letter-spacing:.07em;
     }
-
     .obscura-card h3{
       margin:0 0 10px;
       color:var(--navy);
@@ -699,7 +733,6 @@
       line-height:1.04;
       letter-spacing:-.045em;
     }
-
     .obscura-card p{
       margin:0;
       color:var(--muted);
@@ -709,210 +742,50 @@
       z-index:1;
     }
 
-    .durres-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:18px;
-    }
 
-    .durres-card{
-      padding:20px;
-      min-height:220px;
-    }
-
-    .durres-card h3{
-      margin:0 0 10px;
-      color:var(--navy);
-      font-size:24px;
-      letter-spacing:-.045em;
-    }
-
-    .durres-card ul{
-      margin:0;
-      padding-left:18px;
-      color:var(--muted);
-      line-height:1.6;
-      font-size:15px;
-    }
-
-    .itinerary-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .itinerary-card{
-      background:#fff;
-      border:1px solid rgba(11,35,70,.10);
+    .music-card{
+      background:linear-gradient(135deg,var(--navy),var(--navy2));
+      color:#fff;
       border-radius:26px;
       box-shadow:var(--shadow);
-      padding:20px;
-      min-height:168px;
-    }
-
-    .itinerary-date{
-      display:inline-flex;
-      margin-bottom:14px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:rgba(230,184,92,.16);
-      color:var(--navy);
-      font-size:12px;
-      font-weight:950;
-      text-transform:uppercase;
-      letter-spacing:.07em;
-    }
-
-    .itinerary-card h3{
-      margin:0;
-      color:var(--navy);
-      font-size:24px;
-      line-height:1.08;
-      letter-spacing:-.045em;
-    }
-
-    .restaurant-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:18px;
-    }
-
-    .restaurant-card{
-      background:#fff;
-      border:1px solid rgba(11,35,70,.10);
-      border-radius:26px;
-      box-shadow:var(--shadow);
-      padding:20px;
-      display:grid;
-      grid-template-columns:280px 1fr;
-      gap:20px;
-      align-items:stretch;
-      overflow:hidden;
-    }
-
-    .restaurant-visual{
-      min-height:230px;
-      border-radius:20px;
-      background:
-        linear-gradient(135deg, rgba(48,25,12,.92), rgba(145,73,24,.75)),
-        radial-gradient(circle at 70% 22%, #ffe0a0, transparent 36%);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .restaurant-visual:before{
-      content:"";
-      position:absolute;
-      left:22px;
-      right:22px;
-      bottom:24px;
-      height:10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.55);
-      box-shadow:
-        40px -36px 0 14px rgba(255,255,255,.24),
-        96px -54px 0 19px rgba(255,220,150,.24),
-        160px -30px 0 12px rgba(255,255,255,.22);
-    }
-
-    .restaurant-card h3{
-      margin:0 0 10px;
-      color:var(--navy);
-      font-size:28px;
-      letter-spacing:-.045em;
-    }
-
-    .restaurant-card p{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.5;
-      font-size:15px;
-    }
-
-    .menu-bites{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:8px;
-      margin:14px 0 16px;
-    }
-
-    .bite{
-      padding:9px 10px;
-      border-radius:14px;
-      background:#f6f8fb;
-      border:1px solid rgba(11,35,70,.08);
-      color:var(--navy);
-      font-size:13px;
-      font-weight:850;
-    }
-
-    .stay-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .stay-card{
-      background:#fff;
-      border:1px solid rgba(11,35,70,.10);
-      border-radius:26px;
-      box-shadow:var(--shadow);
-      padding:20px;
-      min-height:210px;
+      padding:26px;
       display:flex;
-      flex-direction:column;
-      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
     }
 
-    .stay-night{
-      width:max-content;
-      padding:7px 10px;
-      border-radius:999px;
-      background:rgba(230,184,92,.16);
-      color:var(--navy);
-      font-size:12px;
-      font-weight:950;
-      text-transform:uppercase;
-      letter-spacing:.07em;
-    }
-
-    .stay-card h3{
-      margin:0;
-      color:var(--navy);
-      font-size:23px;
-      line-height:1.08;
+    .music-card h3{
+      margin:0 0 8px;
+      font-size:30px;
+      line-height:1.05;
       letter-spacing:-.045em;
     }
 
-    .stay-card h3 a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .stay-card h3 a:hover{
-      text-decoration:underline;
-      text-underline-offset:4px;
-    }
-
-    .stay-address,
-    .stay-phone{
-      color:var(--muted);
+    .music-card p{
+      margin:0;
+      color:rgba(255,255,255,.78);
       font-size:15px;
-      line-height:1.45;
+      line-height:1.5;
       font-weight:750;
     }
 
-    .stay-address a,
-    .stay-phone a{
-      color:var(--navy2);
-      font-weight:900;
+    .music-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 18px;
+      border-radius:15px;
+      background:#fff;
+      color:var(--navy);
+      font-weight:950;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
     }
 
-    .stay-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:auto;
+    .music-link:hover{
+      transform:translateY(-1px);
     }
 
     .crew-card{
@@ -920,13 +793,11 @@
       background:linear-gradient(135deg,var(--navy),var(--navy2));
       color:#fff;
     }
-
     .crew-list{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
     }
-
     .crew-pill{
       padding:13px 16px;
       border-radius:999px;
@@ -942,7 +813,6 @@
       color:var(--muted);
       font-size:14px;
     }
-
     .footer-line{
       display:flex;
       justify-content:space-between;
@@ -954,16 +824,12 @@
     }
 
     @media(max-width:1100px){
-      .flights-grid{grid-template-columns:1fr}
+      .flights-grid,.plan-grid,.stay-grid,.obscura-grid,.feature-grid{grid-template-columns:1fr}
     }
-
     @media(max-width:1024px){
       .hero-grid{grid-template-columns:1fr}
-      .place-grid,.obscura-grid,.durres-grid,.stay-grid,.itinerary-grid{grid-template-columns:1fr}
-      .restaurant-card{grid-template-columns:1fr}
       .map-shell,.map-shell iframe{height:500px;min-height:500px}
     }
-
     @media(max-width:720px){
       .hero{padding-top:24px}
       h1{font-size:43px}
@@ -973,13 +839,52 @@
       .airport.right,.time-block.right{text-align:left}
       .plane-mid{display:none}
       .map-shell,.map-shell iframe{height:420px;min-height:420px}
-      .flights-grid{grid-template-columns:1fr}
     }
+  
+    .hero-quick-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:10px;
+      margin-top:30px;
+      max-width:640px;
+    }
+
+    .hero-quick-buttons .btn{
+      min-height:46px;
+      padding:11px 17px;
+      border-radius:15px;
+      font-size:15px;
+      letter-spacing:-.01em;
+      box-shadow:0 8px 18px rgba(11,35,70,.06);
+    }
+
+    .hero-quick-buttons .btn-secondary{
+      background:#fff;
+      border-color:rgba(11,35,70,.13);
+    }
+
+    .hero-quick-buttons .btn-primary{
+      box-shadow:0 12px 24px rgba(11,35,70,.16);
+    }
+
+    @media(max-width:760px){
+      .hero-quick-buttons{
+        gap:9px;
+        margin-top:24px;
+      }
+
+      .hero-quick-buttons .btn{
+        min-height:43px;
+        padding:10px 14px;
+        font-size:14px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
-
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Funday főoldal">
@@ -994,10 +899,14 @@
 
     <nav class="menu" aria-label="Navigáció">
       <a href="#flights">Járatok</a>
+      <a href="#plan">Útiterv</a>
       <a href="#map">Térkép</a>
+      <a href="#stays">Szállás</a>
       <a href="#drinks">ITAL</a>
+      <a href="#restaurants">Éttermek</a>
       <a href="#obscura">Camera obscura</a>
       <a href="#crew">Crew</a>
+      <a href="#music">Zene</a>
       <a href="/funday-2025/">Funday 2025 archív</a>
     </nav>
   </div>
@@ -1015,29 +924,22 @@
 
         <h1>FUN will be FUN.<br>Day and Night.</h1>
 
-        <p class="lead">
-          Tirana weekend: járatok, térkép, rooftop, sör, Durrës és néhány furcsa városi pont egy helyen.
-        </p>
-
-        <div class="hero-actions">
+        <div class="hero-actions hero-quick-buttons" aria-label="Gyors navigáció">
           <a class="btn btn-primary" href="#map">Térkép</a>
           <a class="btn btn-secondary" href="#flights">Járatok</a>
+          <a class="btn btn-secondary" href="#plan">Útiterv</a>
+          <a class="btn btn-secondary" href="#stays">Szállás</a>
           <a class="btn btn-secondary" href="#drinks">ITAL</a>
-        </div>
-
-        <div class="hero-meta">
-          <span class="meta-pill">2026.07.10–07.13</span>
-          <span class="meta-pill">BUD - TIA - BUD</span>
-          <span class="meta-pill">9 fő</span>
-          <span class="meta-pill">Tirana + Durrës</span>
+          <a class="btn btn-secondary" href="#restaurants">Éttermek</a>
+          <a class="btn btn-secondary" href="#music">Zene</a>
         </div>
       </div>
 
       <div class="hero-visual">
-        <img src="tirana-weekend-2026-v9.png" alt="Tirana Weekend 2026">
+        <img src="tirana-weekend-2026.png?v=9" onerror="this.onerror=null;this.src='tirana-weekend-2026-9friends.png?v=9';" alt="Tirana Weekend 2026">
         <div class="poster-note">
           <strong>Tirana Weekend 2026</strong>
-          <span>July 10–13 · 9 friends · Day and Night</span>
+          <span>July 10–13 · Day and Night</span>
         </div>
       </div>
     </div>
@@ -1059,7 +961,6 @@
             <div class="flight-label">Pénteki érkezés · 7 fő</div>
             <div class="airline-pill">Wizz Air · W62233</div>
           </div>
-
           <div class="flight-body">
             <div class="route-row">
               <div class="airport">
@@ -1072,24 +973,20 @@
                 <strong>TIA</strong>
               </div>
             </div>
-
             <div class="times">
               <div class="time-block">
                 <small>2026.07.10 · péntek</small>
                 <strong>13:40</strong>
               </div>
-
               <div class="duration">
                 <small>Utazási idő</small>
                 <strong>1ó30</strong>
               </div>
-
               <div class="time-block right">
                 <small>2026.07.10 · péntek</small>
                 <strong>15:10</strong>
               </div>
             </div>
-
             <div class="flight-footer">
               <span>BUD → TIA</span>
               <span>Wizz Air</span>
@@ -1102,7 +999,6 @@
             <div class="flight-label">Szombati érkezés · 2 fő</div>
             <div class="airline-pill">Ryanair</div>
           </div>
-
           <div class="flight-body">
             <div class="route-row">
               <div class="airport">
@@ -1115,24 +1011,20 @@
                 <strong>TIA</strong>
               </div>
             </div>
-
             <div class="times">
               <div class="time-block">
                 <small>2026.07.11 · szombat</small>
                 <strong>05:45</strong>
               </div>
-
               <div class="duration">
                 <small>Utazási idő</small>
                 <strong>1ó30</strong>
               </div>
-
               <div class="time-block right">
                 <small>2026.07.11 · szombat</small>
                 <strong>07:15</strong>
               </div>
             </div>
-
             <div class="flight-footer">
               <span>BUD → TIA</span>
               <span>Ryanair</span>
@@ -1145,7 +1037,6 @@
             <div class="flight-label">Vissza · 9 fő</div>
             <div class="airline-pill">Wizz Air</div>
           </div>
-
           <div class="flight-body">
             <div class="route-row">
               <div class="airport">
@@ -1158,24 +1049,20 @@
                 <strong>BUD</strong>
               </div>
             </div>
-
             <div class="times">
               <div class="time-block">
                 <small>2026.07.13 · hétfő</small>
                 <strong>16:00</strong>
               </div>
-
               <div class="duration">
                 <small>Utazási idő</small>
                 <strong>1ó30</strong>
               </div>
-
               <div class="time-block right">
                 <small>2026.07.13 · hétfő</small>
                 <strong>17:30</strong>
               </div>
             </div>
-
             <div class="flight-footer">
               <span>TIA → BUD</span>
               <span>Wizz Air</span>
@@ -1186,34 +1073,31 @@
     </div>
   </section>
 
-
-  <section id="itinerary">
+  <section id="plan">
     <div class="wrap">
       <div class="section-head">
         <div>
           <h2>Útiterv</h2>
+          <p>Privát sofőr elérhetőség: <a href="tel:+355682254889">+355 68 225 4889</a></p>
         </div>
-        <div class="section-tag">JULY 10–13</div>
+        <div class="section-tag">4 nap</div>
       </div>
 
-      <div class="itinerary-grid">
-        <article class="itinerary-card">
-          <span class="itinerary-date">Július 10.</span>
+      <div class="plan-grid">
+        <article class="plan-card">
+          <div class="plan-date">Július 10.</div>
           <h3>Tirana elfoglalása</h3>
         </article>
-
-        <article class="itinerary-card">
-          <span class="itinerary-date">Július 11.</span>
+        <article class="plan-card">
+          <div class="plan-date">Július 11.</div>
           <h3>Durresi durrantás, tenger, napfény, chill, Tiranai éjszaka</h3>
         </article>
-
-        <article class="itinerary-card">
-          <span class="itinerary-date">Július 12.</span>
+        <article class="plan-card">
+          <div class="plan-date">Július 12.</div>
           <h3>Bunker, felvonó és kilátás + VILLA</h3>
         </article>
-
-        <article class="itinerary-card">
-          <span class="itinerary-date">Július 13.</span>
+        <article class="plan-card">
+          <div class="plan-date">Július 13.</div>
           <h3>Levezetés vagy felpörgés</h3>
         </article>
       </div>
@@ -1225,7 +1109,6 @@
       <div class="section-head">
         <div>
           <h2>Tirana térkép</h2>
-          
         </div>
         <div class="section-tag">MAP</div>
       </div>
@@ -1233,23 +1116,15 @@
       <article class="map-card">
         <div class="map-shell">
           <iframe
-            src="https://www.google.com/maps/d/embed?mid=1W8Quyoo3WUc_XnMHsSxBUOQ3xAUsk1k&ll=41.32%2C19.65&z=10&ehbc=2E312F"
+            src="https://www.google.com/maps/d/embed?mid=1W8Quyoo3WUc_XnMHsSxBUOQ3xAUsk1k&ehbc=2E312F&ll=41.2820,19.8120&z=10"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Tirana Albania 2026 térkép">
           </iframe>
         </div>
-
-        <div class="map-meta">
-          <span>Tirana_Albania_2026</span>
-          <a href="https://www.google.com/maps/d/u/0/viewer?mid=1W8Quyoo3WUc_XnMHsSxBUOQ3xAUsk1k&usp=sharing" target="_blank" rel="noopener">
-            Teljes térkép ↗
-          </a>
-        </div>
       </article>
     </div>
   </section>
-
 
   <section id="stays">
     <div class="wrap">
@@ -1322,6 +1197,7 @@
   </section>
 
 
+  
   <section id="drinks">
     <div class="wrap">
       <div class="section-head">
@@ -1329,104 +1205,51 @@
           <h2>ITAL</h2>
           <p>Panoráma, koktél, craft sör, rooftop vacsora, karakter.</p>
         </div>
-        <div class="section-tag">DRINKS / VIEW</div>
+        <div class="section-tag">ITAL</div>
       </div>
 
-      <div class="place-grid">
-        <article class="place-card">
-          <div class="place-visual"></div>
-          <div class="place-content">
-            <div class="place-top">
-              <h3>Te Pamja</h3>
-              <span class="place-badge">view</span>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-map">
+            <iframe src="https://www.google.com/maps?q=Te%20Pamja%20Tirana&output=embed" loading="lazy" title="Te Pamja térkép"></iframe>
+          </div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h3 class="feature-title"><a href="https://www.instagram.com/te.pamja/" target="_blank" rel="noopener">Te Pamja</a></h3>
+              <div class="feature-badge">view</div>
             </div>
-            <p>Fent a város felett. Kilátás, naplemente, kinti levegő.</p>
-            <div class="place-actions">
-              <a class="mini-btn map" href="https://maps.app.goo.gl/mkYew2Kzaa1UAsoi7" target="_blank" rel="noopener">Google Maps</a>
-              <a class="mini-btn" href="https://www.instagram.com/te.pamja/" target="_blank" rel="noopener">Honlap</a>
-              <span class="mini-btn">panoráma</span>
-            </div>
+            <div class="feature-copy">Panorámás esti pont Tirana felett.</div>
+            <div class="feature-address"><a href="https://maps.app.goo.gl/mkYew2Kzaa1UAsoi7" target="_blank" rel="noopener">Farkë / Sauk, Tirana</a></div>
+            <div class="feature-links"><a class="mini-btn map" href="https://maps.app.goo.gl/mkYew2Kzaa1UAsoi7" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.instagram.com/te.pamja/" target="_blank" rel="noopener">Oldal / Instagram</a></div>
           </div>
         </article>
-
-        <article class="place-card">
-          <div class="place-visual"></div>
-          <div class="place-content">
-            <div class="place-top">
-              <h3>Sky Club 360°</h3>
-              <span class="place-badge">view</span>
-            </div>
-            <p>Panorámás első ital. Városfény, koktél, jó kezdés.</p>
-            <div class="place-actions">
-              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Sky%20Club%20360%20Tirana" target="_blank" rel="noopener">Google Maps</a>
-              <a class="mini-btn" href="https://skyhotel.al/" target="_blank" rel="noopener">Honlap</a>
-              <span class="mini-btn">sunset</span>
-            </div>
-          </div>
+        <article class="feature-card">
+          <div class="feature-map"><iframe src="https://www.google.com/maps?q=Twiga%20Rooftop%20Lounge%20Tirana&output=embed" loading="lazy" title="Twiga Rooftop Lounge térkép"></iframe></div>
+          <div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://twigaworld.com/" target="_blank" rel="noopener">Twiga Rooftop Lounge</a></h3><div class="feature-badge">rooftop</div></div><div class="feature-copy">Rooftop lounge / esti ital / kilátás.</div><div class="feature-address"><a href="https://maps.app.goo.gl/6vixzeuhdfHd4dhQ9" target="_blank" rel="noopener">Twin Towers, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://maps.app.goo.gl/6vixzeuhdfHd4dhQ9" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://twigaworld.com/" target="_blank" rel="noopener">Honlap</a></div></div>
         </article>
-
-        <article class="place-card">
-          <div class="place-visual"></div>
-          <div class="place-content">
-            <div class="place-top">
-              <h3>The View Lounge</h3>
-              <span class="place-badge">lounge</span>
-            </div>
-            <p>Magasabb, tisztább, esti városnézős koktélpont.</p>
-            <div class="place-actions">
-              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=The%20View%20Lounge%20Tirana" target="_blank" rel="noopener">Google Maps</a>
-              <a class="mini-btn" href="https://www.plazatirana.com/bars-and-restaurants/" target="_blank" rel="noopener">Honlap</a>
-              <span class="mini-btn">city lights</span>
-            </div>
-          </div>
+        <article class="feature-card">
+          <div class="feature-map"><iframe src="https://www.google.com/maps?q=Sky%20Club%20360%20Tirana&output=embed" loading="lazy" title="Sky Club 360 térkép"></iframe></div>
+          <div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://skyhotel.al/" target="_blank" rel="noopener">Sky Club 360°</a></h3><div class="feature-badge">360°</div></div><div class="feature-copy">Klasszikus panorámás első ital.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Sky%20Tower%2C%20Rruga%20Ibrahim%20Rugova%2C%20Tirana" target="_blank" rel="noopener">Sky Tower, Rruga Ibrahim Rugova, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Sky%20Club%20360%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://skyhotel.al/" target="_blank" rel="noopener">Honlap</a></div></div>
         </article>
-
-        <article class="place-card">
-          <div class="place-visual"></div>
-          <div class="place-content">
-            <div class="place-top">
-              <h3>ARKA Rooftop</h3>
-              <span class="place-badge">dinner</span>
-            </div>
-            <p>Rooftop vacsora, skyline, nem túlöltözős prémium.</p>
-            <div class="place-actions">
-              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=ARKA%20Rooftop%20Tirana" target="_blank" rel="noopener">Google Maps</a>
-              <a class="mini-btn" href="https://arkarooftop.com/" target="_blank" rel="noopener">Honlap</a>
-              <span class="mini-btn">food</span>
-            </div>
-          </div>
+        <article class="feature-card">
+          <div class="feature-map"><iframe src="https://www.google.com/maps?q=The%20View%20Lounge%20Tirana&output=embed" loading="lazy" title="The View Lounge térkép"></iframe></div>
+          <div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=The+View+Lounge+Tirana" target="_blank" rel="noopener">The View Lounge</a></h3><div class="feature-badge">lounge</div></div><div class="feature-copy">Magasabb városfényes koktélpont.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=The%20Plaza%20Tirana%2C%20Rruga%2028%20N%C3%ABntori%2C%20Tirana" target="_blank" rel="noopener">The Plaza Tirana, Rruga 28 Nëntori, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=The%20View%20Lounge%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=The+View+Lounge+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div>
         </article>
-
-        <article class="place-card">
-          <div class="place-visual beer"></div>
-          <div class="place-content">
-            <div class="place-top">
-              <h3>Taproom by Pan’s</h3>
-              <span class="place-badge">beer</span>
-            </div>
-            <p>Craft sör, flight, helyi főzde-vonal.</p>
-            <div class="place-actions">
-              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Taproom%20by%20Pan%27s%20Tirana" target="_blank" rel="noopener">Google Maps</a>
-              <a class="mini-btn" href="https://www.instagram.com/taproombypans/" target="_blank" rel="noopener">Honlap</a>
-              <span class="mini-btn">craft</span>
-            </div>
-          </div>
+        <article class="feature-card">
+          <div class="feature-map"><iframe src="https://www.google.com/maps?q=Taproom%20by%20Pan%27s%20Tirana&output=embed" loading="lazy" title="Taproom by Pan's térkép"></iframe></div>
+          <div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=Taproom+by+Pan%27s+Tirana" target="_blank" rel="noopener">Taproom by Pan’s</a></h3><div class="feature-badge">craft</div></div><div class="feature-copy">Craft sör, flight, helyi főzde-vonal.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Taproom%20by%20Pan%27s%20Tirana" target="_blank" rel="noopener">Taproom by Pan’s, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Taproom%20by%20Pan%27s%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=Taproom+by+Pan%27s+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div>
         </article>
-
-        <article class="place-card">
-          <div class="place-visual beer"></div>
-          <div class="place-content">
-            <div class="place-top">
-              <h3>Hops Bar</h3>
-              <span class="place-badge">pub</span>
-            </div>
-            <p>Sörlista, lazább este, nem koktélos irány.</p>
-            <div class="place-actions">
-              <a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Hops%20Bar%20Tirana" target="_blank" rel="noopener">Google Maps</a>
-              <a class="mini-btn" href="https://www.instagram.com/hopsbartirana/" target="_blank" rel="noopener">Honlap</a>
-              <span class="mini-btn">beer</span>
-            </div>
-          </div>
+        <article class="feature-card">
+          <div class="feature-map"><iframe src="https://www.google.com/maps?q=Hops%20Bar%20Tirana&output=embed" loading="lazy" title="Hops Bar térkép"></iframe></div>
+          <div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=Hops+Bar+Tirana" target="_blank" rel="noopener">Hops Bar</a></h3><div class="feature-badge">beer</div></div><div class="feature-copy">Lazább sörös este, pub irány.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Hops%20Bar%20Tirana" target="_blank" rel="noopener">Hops Bar, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Hops%20Bar%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=Hops+Bar+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-map"><iframe src="https://www.google.com/maps?q=Komiteti%20Tirana&output=embed" loading="lazy" title="Komiteti térkép"></iframe></div>
+          <div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=Komiteti+Tirana" target="_blank" rel="noopener">Komiteti</a></h3><div class="feature-badge">raki</div></div><div class="feature-copy">Raki / kafe-múzeum hangulat, karakteres megálló.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Komiteti%20Tirana" target="_blank" rel="noopener">Komiteti, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Komiteti%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=Komiteti+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-map"><iframe src="https://www.google.com/maps?q=Hemingway%20Bar%20Tirana&output=embed" loading="lazy" title="Hemingway Bar térkép"></iframe></div>
+          <div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=Hemingway+Bar+Tirana" target="_blank" rel="noopener">Hemingway Bar</a></h3><div class="feature-badge">rum</div></div><div class="feature-copy">Rum / jazz / kisebb esti karakterhely.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Hemingway%20Bar%20Tirana" target="_blank" rel="noopener">Hemingway Bar, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Hemingway%20Bar%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=Hemingway+Bar+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div>
         </article>
       </div>
     </div>
@@ -1435,35 +1258,13 @@
 
   <section id="restaurants">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Éttermek</h2>
-        </div>
-        <div class="section-tag">FOOD</div>
-      </div>
-
-      <div class="restaurant-grid">
-        <article class="restaurant-card">
-          <div class="restaurant-visual"></div>
-          <div>
-            <h3>Oda - Traditional Albanian Restaurant</h3>
-            <p>Tradicionális albán kaja, nem finomkodós vonal. Ezek a legkeményebb tételek az étlapról:</p>
-
-            <div class="menu-bites">
-              <span class="bite">Kokë Qingji — bárányfej</span>
-              <span class="bite">Kukurrec — báránybél</span>
-              <span class="bite">Tavë Plënci — báránygyomor</span>
-              <span class="bite">Kolloface — belsőségek, rizs, tojás</span>
-              <span class="bite">Harapash — kukoricaliszt + belsőségek</span>
-              <span class="bite">Tavë Dheu — túró/gjizë + máj</span>
-            </div>
-
-            <div class="place-actions">
-              <a class="mini-btn map" href="https://maps.app.goo.gl/9P2fdy9kCndDGChV9" target="_blank" rel="noopener">Google Maps</a>
-              <a class="mini-btn" href="https://odagardenrestaurant.eu/" target="_blank" rel="noopener">Honlap / menü</a>
-            </div>
-          </div>
-        </article>
+      <div class="section-head"><div><h2>Éttermek</h2></div><div class="section-tag">KAJA</div></div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-map"><iframe src="https://www.google.com/maps?q=Oda%20Traditional%20Albanian%20Restaurant%20Tirana&output=embed" loading="lazy" title="Oda térkép"></iframe></div><div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://odarestaurant.al/" target="_blank" rel="noopener">Oda – Traditional Albanian Restaurant</a></h3><div class="feature-badge">traditional</div></div><div class="feature-copy">Pazari i Ri környéki klasszikus albán étterem.</div><div class="feature-address"><a href="https://maps.app.goo.gl/9P2fdy9kCndDGChV9" target="_blank" rel="noopener">Rruga Luigj Gurakuqi, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://maps.app.goo.gl/9P2fdy9kCndDGChV9" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://odarestaurant.al/" target="_blank" rel="noopener">Honlap</a></div><div class="dish-list"><span class="dish">Kokë Qingji · bárányfej</span><span class="dish">Kukurrec · báránybelek</span><span class="dish">Kolloface · belsőségek + rizs</span><span class="dish">Harapash · kukorica + belsőség</span><span class="dish">Tavë Plënci · báránygyomor</span><span class="dish">Mish Qingji në Sac</span><span class="dish">Tavë Dheu</span></div></div></article>
+        <article class="feature-card"><div class="feature-map"><iframe src="https://www.google.com/maps?q=ARKA%20Rooftop%20Tirana&output=embed" loading="lazy" title="ARKA Rooftop térkép"></iframe></div><div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=ARKA+Rooftop+Tirana" target="_blank" rel="noopener">ARKA Rooftop</a></h3><div class="feature-badge">rooftop</div></div><div class="feature-copy">Rooftop vacsora, skyline, nem túlöltözős prémium.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=ARKA%20Rooftop%20Tirana" target="_blank" rel="noopener">ARKA Rooftop, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=ARKA%20Rooftop%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=ARKA+Rooftop+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div></article>
+        <article class="feature-card"><div class="feature-map"><iframe src="https://www.google.com/maps?q=Tradita%20te%20Meri%20Tirana&output=embed" loading="lazy" title="Tradita te Meri térkép"></iframe></div><div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=Tradita+te+Meri+Tirana" target="_blank" rel="noopener">Tradita te Meri</a></h3><div class="feature-badge">albanian</div></div><div class="feature-copy">Tradicionális albán kaja, Pazari i Ri / belvárosi vonal.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Tradita%20te%20Meri%20Tirana" target="_blank" rel="noopener">Rruga Shenasi Dishnica, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Tradita%20te%20Meri%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=Tradita+te+Meri+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div></article>
+        <article class="feature-card"><div class="feature-map"><iframe src="https://www.google.com/maps?q=Xheti%27s%20Meat%20Shop%20Tirana&output=embed" loading="lazy" title="Xheti's Meat Shop térkép"></iframe></div><div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://www.google.com/search?q=Xheti%27s+Meat+Shop+Tirana" target="_blank" rel="noopener">Xheti's Meat Shop</a></h3><div class="feature-badge">meat</div></div><div class="feature-copy">Húsos irány, egyszerűbb / karakteresebb megálló.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Xheti%27s%20Meat%20Shop%20Rruga%20Fadil%20Rada%20Tirana" target="_blank" rel="noopener">Rruga Fadil Rada, Tirana 1001</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Xheti%27s%20Meat%20Shop%20Rruga%20Fadil%20Rada%20Tirana" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://www.google.com/search?q=Xheti%27s+Meat+Shop+Tirana" target="_blank" rel="noopener">Honlap / keresés</a></div></div></article>
+        <article class="feature-card"><div class="feature-map"><iframe src="https://www.google.com/maps?q=Mrizi%20i%20Zanave%20Tirane&output=embed" loading="lazy" title="Mrizi i Zanave Tirane térkép"></iframe></div><div class="feature-body"><div class="feature-top"><h3 class="feature-title"><a href="https://mriziizanave.al/" target="_blank" rel="noopener">Mrizi i Zanave Tirane</a></h3><div class="feature-badge">albanian</div></div><div class="feature-copy">Albán / kelet-európai, városi Mrizi-vonal.</div><div class="feature-address"><a href="https://www.google.com/maps/search/?api=1&query=Mrizi%20i%20Zanave%20Tirane%20Ura%20e%20Tabakeve" target="_blank" rel="noopener">Ura e Tabakëve környéke, Tirana</a></div><div class="feature-links"><a class="mini-btn map" href="https://www.google.com/maps/search/?api=1&query=Mrizi%20i%20Zanave%20Tirane%20Ura%20e%20Tabakeve" target="_blank" rel="noopener">Google Maps</a><a class="mini-btn" href="https://mriziizanave.al/" target="_blank" rel="noopener">Honlap</a></div></div></article>
       </div>
     </div>
   </section>
@@ -1523,7 +1324,6 @@
       <div class="section-head">
         <div>
           <h2>Crew</h2>
-          
         </div>
         <div class="section-tag">9 fő</div>
       </div>
@@ -1540,6 +1340,17 @@
           <span class="crew-pill">Ádám</span>
           <span class="crew-pill">FANG</span>
         </div>
+      </article>
+    </div>
+  </section>
+
+
+  <section id="music">
+    <div class="wrap">
+      <div class="section-head"><div><h2>ZENE</h2></div><div class="section-tag">YOUTUBE PLAYLIST</div></div>
+      <article class="music-card">
+        <div><h3>Tirana Weekend Playlist</h3><p>YouTube playlist a triphez.</p></div>
+        <a class="music-link" href="https://www.youtube.com/playlist?list=PLJxeqWmnC63s&jct=hRXzX1tLoPLD41lZjhAPMA" target="_blank" rel="noopener">Playlist megnyitása ↗</a>
       </article>
     </div>
   </section>
