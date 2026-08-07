@@ -112,9 +112,27 @@
       font-weight:800;
     }
 
+    .featured{
+      margin-bottom:48px;
+    }
+    .featured .card{
+      min-height:560px;
+    }
+    .featured .card-content{
+      max-width:760px;
+      padding:34px;
+    }
+    .featured .card h2{
+      margin:0;
+      font-size:clamp(40px,6vw,66px);
+      line-height:.94;
+      letter-spacing:-.06em;
+      text-shadow:0 3px 14px rgba(0,0,0,.34);
+    }
+
     .grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:22px;
     }
 
@@ -269,17 +287,19 @@
     }
 
     @media(max-width:980px){
+      .featured .card{min-height:500px}
       .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .card:last-child{grid-column:1 / -1;min-height:470px}
-      .card:last-child .card-image{object-position:center 46%}
     }
 
     @media(max-width:720px){
       .hero{padding-top:38px}
       .hero h1{font-size:58px}
       .section-head{align-items:flex-start;flex-direction:column;gap:5px}
+      .featured{margin-bottom:38px}
+      .featured .card{min-height:500px}
+      .featured .card-content{padding:24px}
       .grid{grid-template-columns:1fr;gap:18px}
-      .card,.card:last-child{grid-column:auto;min-height:500px}
+      .card{min-height:500px}
       .card-content{padding:22px}
       .open{min-width:138px}
     }
@@ -309,9 +329,20 @@
 
     <section class="projects">
       <div class="wrap">
+        <div class="featured">
+          <a class="card" href="/funday2026/" aria-label="Funday 2026 megnyitása">
+            <img class="card-image" src="/home-funday-2026.webp" alt="">
+            <div class="card-content">
+              <span class="eyebrow">Következő</span>
+              <h2>Funday 2026</h2>
+              <p>Az új esemény oldala. Részletek hamarosan.</p>
+              <span class="open">Megnyitás</span>
+            </div>
+          </a>
+        </div>
+
         <div class="section-head">
           <h2>A FUN krónikája</h2>
-          <span>A lista folyamatosan bővül.</span>
         </div>
 
         <div class="grid">
@@ -331,16 +362,6 @@
               <span class="eyebrow">AZ EREDETI</span>
               <h3>Funday 2025</h3>
               <p>A 2025-ös program, helyek és résztvevők.</p>
-              <span class="open">Megnyitás</span>
-            </div>
-          </a>
-
-          <a class="card" href="/funday2026/" aria-label="Funday 2026 megnyitása">
-            <img class="card-image" src="/home-funday-2026.webp" alt="">
-            <div class="card-content">
-              <span class="eyebrow">Következő</span>
-              <h3>Funday 2026</h3>
-              <p>Az új esemény oldala. Részletek hamarosan.</p>
               <span class="open">Megnyitás</span>
             </div>
           </a>
