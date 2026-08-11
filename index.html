@@ -13,8 +13,8 @@
       --navy2:#12375f;
       --gold:#e5b34f;
       --gold2:#ffd778;
-      --acid:#e7ff53;
-      --blue:#5b7cff;
+      --acid:#ffd778;
+      --blue:#12375f;
       --paper:#f7f9fc;
       --white:#fff;
       --ink:#102033;
@@ -135,10 +135,10 @@
     .selector-featured .selector-card{
       min-height:440px;
       background:
-        radial-gradient(circle at 82% 50%,var(--blue) 0 14%,transparent 14.4%),
+        radial-gradient(circle at 82% 50%,var(--acid) 0 14%,transparent 14.4%),
         radial-gradient(circle at 82% 50%,transparent 0 23%,rgba(255,255,255,.2) 23.3% 23.7%,transparent 24%),
-        radial-gradient(circle at 82% 50%,transparent 0 33%,rgba(231,255,83,.22) 33.3% 33.7%,transparent 34%),
-        linear-gradient(135deg,#10182b 0%,#172d55 72%,#10182b 100%);
+        radial-gradient(circle at 82% 50%,transparent 0 33%,rgba(255,215,120,.24) 33.3% 33.7%,transparent 34%),
+        linear-gradient(135deg,var(--navy) 0%,var(--navy2) 72%,var(--navy) 100%);
     }
     .selector-featured .selector-card:before{
       background:linear-gradient(90deg,rgba(16,24,43,.03) 0%,rgba(16,24,43,.08) 48%,rgba(16,24,43,.24) 100%);
@@ -363,9 +363,9 @@
       .selector-featured .selector-card{
         min-height:470px;
         background:
-          radial-gradient(circle at 78% 82%,var(--blue) 0 14%,transparent 14.5%),
+          radial-gradient(circle at 78% 82%,var(--acid) 0 14%,transparent 14.5%),
           radial-gradient(circle at 78% 82%,transparent 0 25%,rgba(255,255,255,.18) 25.5% 26%,transparent 26.5%),
-          linear-gradient(145deg,#10182b,#172d55);
+          linear-gradient(145deg,var(--navy),var(--navy2));
       }
       .selector-card .card-content{align-self:flex-start;padding:26px 22px}
       .selector-card h2{font-size:45px}
