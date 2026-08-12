@@ -13,8 +13,6 @@
       --navy2:#12375f;
       --gold:#e5b34f;
       --gold2:#ffd778;
-      --acid:#ffd778;
-      --blue:#12375f;
       --paper:#f7f9fc;
       --white:#fff;
       --ink:#102033;
@@ -130,65 +128,6 @@
       line-height:.94;
       letter-spacing:-.06em;
       text-shadow:0 3px 14px rgba(0,0,0,.34);
-    }
-    .selector-featured{margin-bottom:56px}
-    .selector-featured .selector-card{
-      min-height:440px;
-      background:
-        radial-gradient(circle at 82% 50%,var(--acid) 0 14%,transparent 14.4%),
-        radial-gradient(circle at 82% 50%,transparent 0 23%,rgba(255,255,255,.2) 23.3% 23.7%,transparent 24%),
-        radial-gradient(circle at 82% 50%,transparent 0 33%,rgba(255,215,120,.24) 33.3% 33.7%,transparent 34%),
-        linear-gradient(135deg,var(--navy) 0%,var(--navy2) 72%,var(--navy) 100%);
-    }
-    .selector-featured .selector-card:before{
-      background:linear-gradient(90deg,rgba(16,24,43,.03) 0%,rgba(16,24,43,.08) 48%,rgba(16,24,43,.24) 100%);
-    }
-    .selector-featured .selector-card:after{
-      content:"SZEPT · OKT · NOV";
-      position:absolute;
-      inset:auto 5% 28px auto;
-      color:rgba(255,255,255,.7);
-      font-size:10px;
-      font-weight:950;
-      letter-spacing:.18em;
-      box-shadow:none;
-    }
-    .selector-card .card-content{
-      align-self:center;
-      max-width:780px;
-      padding:38px;
-    }
-    .selector-card .eyebrow{
-      color:var(--navy);
-      background:var(--acid);
-      border-color:var(--acid);
-      box-shadow:5px 5px 0 var(--blue);
-    }
-    .selector-card h2{
-      max-width:720px;
-      margin:0;
-      color:#fff;
-      font-size:clamp(42px,6vw,68px);
-      line-height:.91;
-      letter-spacing:-.065em;
-      text-shadow:0 3px 14px rgba(0,0,0,.25);
-    }
-    .selector-card h2 em{color:var(--acid);font-style:normal}
-    .selector-card p{max-width:620px;min-height:0;font-size:16px}
-    .selector-card .open{
-      color:var(--navy);
-      background:var(--acid);
-      border-color:var(--acid);
-      box-shadow:7px 7px 0 var(--blue);
-    }
-    .selector-card .open:after{background:var(--blue)}
-    .selector-featured .selector-card:hover .open{
-      transform:translateY(-2px);
-      box-shadow:9px 9px 0 var(--blue);
-    }
-    .selector-featured .selector-card:active .open{
-      transform:translateY(5px);
-      box-shadow:3px 3px 0 var(--blue);
     }
 
     .grid{
@@ -359,18 +298,6 @@
       .featured{margin-bottom:38px}
       .featured .card{min-height:500px}
       .featured .card-content{padding:24px}
-      .selector-featured{margin-bottom:44px}
-      .selector-featured .selector-card{
-        min-height:470px;
-        background:
-          radial-gradient(circle at 78% 82%,var(--acid) 0 14%,transparent 14.5%),
-          radial-gradient(circle at 78% 82%,transparent 0 25%,rgba(255,255,255,.18) 25.5% 26%,transparent 26.5%),
-          linear-gradient(145deg,var(--navy),var(--navy2));
-      }
-      .selector-card .card-content{align-self:flex-start;padding:26px 22px}
-      .selector-card h2{font-size:45px}
-      .selector-card p{font-size:15px}
-      .selector-featured .selector-card:after{right:22px;bottom:20px}
       .grid{grid-template-columns:1fr;gap:18px}
       .card{min-height:500px}
       .card-content{padding:22px}
@@ -404,23 +331,12 @@
       <div class="wrap">
         <div class="featured">
           <a class="card" href="/funday2026/" aria-label="Funday 2026 megnyitása">
-            <img class="card-image" src="/home-funday-2026.webp" alt="">
+            <img class="card-image" src="./home-funday-2026-rooftop.webp" alt="">
             <div class="card-content">
               <span class="eyebrow">Következő</span>
               <h2>Funday 2026</h2>
               <p>Az új esemény oldala. Részletek hamarosan.</p>
               <span class="open">Megnyitás</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="selector-featured">
-          <a class="card selector-card" href="/utvonalvalasztas/" aria-label="Úticélválasztó megnyitása">
-            <div class="card-content">
-              <span class="eyebrow">Úticélválasztó · Ősz 2026</span>
-              <h2>Hova menjünk <em>következőnek?</em></h2>
-              <p>Szeptember, október vagy november — szűrés, shortlist és összevetés egy helyen.</p>
-              <span class="open">Útvonalválasztás</span>
             </div>
           </a>
         </div>
