@@ -271,6 +271,13 @@
       box-shadow:0 4px 0 rgba(4,13,28,.30),0 8px 15px rgba(4,13,28,.24);
     }
 
+
+    .section-divider{height:1px;background:var(--line);margin:58px 0 46px}
+    .archive-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+    .archive-grid .card{max-width:610px}
+    .travel-featured{margin-top:0}
+    @media(max-width:720px){.section-divider{margin:42px 0 34px}.archive-grid{grid-template-columns:1fr}.archive-grid .card{max-width:none}}
+
     footer{
       padding:22px 0 36px;
       color:var(--muted);
@@ -329,49 +336,75 @@
 
     <section class="projects">
       <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Szórakozás</h2>
+            <span>Budapest · Funday</span>
+          </div>
+        </div>
+
         <div class="featured">
-          <a class="card" href="/funday2027/" aria-label="Funday 2027 megnyitása">
-            <img class="card-image" src="./home-funday-2027.webp" alt="">
+          <a class="card" href="/funday2026/" aria-label="Funday 2026 megnyitása">
+            <img class="card-image" src="/home-funday-2026-entertainment.webp" alt="">
             <div class="card-content">
-              <span class="eyebrow">Következő</span>
-              <h2>Funday 2027</h2>
-              <p>Programötletek és a 2026-os szavazás Top 10 úticélja.</p>
+              <span class="eyebrow">2026. december 30. · Budapest</span>
+              <h2>Funday 2026</h2>
+              <p>Programötletek: játék, verseny, escape és esti programok.</p>
               <span class="open">Megnyitás</span>
             </div>
           </a>
         </div>
 
+        <div class="grid archive-grid">
+          <a class="card" href="/funday-2025/" aria-label="Funday 2025 archívum megnyitása">
+            <img class="card-image" src="/home-funday-2025.webp" alt="">
+            <div class="card-content">
+              <span class="eyebrow">Szórakozás · Archív</span>
+              <h3>Funday 2025</h3>
+              <p>A 2025-ös program, helyek és résztvevők.</p>
+              <span class="open">Megnyitás</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="section-divider"></div>
+
         <div class="section-head">
-          <h2>A FUN krónikája</h2>
+          <div>
+            <h2>Utazás</h2>
+            <span>Funday trips</span>
+          </div>
+        </div>
+
+        <div class="featured travel-featured">
+          <a class="card" href="/utvonalvalasztas2027/" aria-label="Úticélválasztás 2027 megnyitása">
+            <img class="card-image" src="/home-funday-2026-rooftop.webp" alt="">
+            <div class="card-content">
+              <span class="eyebrow">Utazás · 2027</span>
+              <h2>Úticélválasztás 2027</h2>
+              <p>A 2026-os szavazás Top 10 úticélja. Jelenleg nincs új szavazás.</p>
+              <span class="open">Megnyitás</span>
+            </div>
+          </a>
         </div>
 
         <div class="grid">
-          <a class="card" href="/utvonalvalasztas2026/" aria-label="2026-os úticélválasztás eredményének megnyitása">
-            <img class="card-image" src="/home-funday-2026-rooftop.webp" alt="">
-            <div class="card-content">
-              <span class="eyebrow">2026 · Eredmény</span>
-              <h3>Úticélválasztás</h3>
-              <p>31 opció, 7 szavazó, lezárt eredmény.</p>
-              <span class="open">Megnyitás</span>
-            </div>
-          </a>
-
           <a class="card" href="/tirana2026/" aria-label="Tirana 2026 megnyitása">
             <img class="card-image" src="/home-tirana-2026.webp" alt="">
             <div class="card-content">
-              <span class="eyebrow">Utazás</span>
+              <span class="eyebrow">Utazás · 2026</span>
               <h3>Tirana 2026</h3>
               <p>Tirana, Durrës, járatok, szállások, éttermek és térkép.</p>
               <span class="open">Megnyitás</span>
             </div>
           </a>
 
-          <a class="card" href="/funday-2025/" aria-label="Funday 2025 archívum megnyitása">
-            <img class="card-image" src="/home-funday-2025.webp" alt="">
+          <a class="card" href="/utvonalvalasztas2026/" aria-label="2026-os úticélválasztás eredményének megnyitása">
+            <img class="card-image" src="/home-funday-2026-rooftop.webp" alt="">
             <div class="card-content">
-              <span class="eyebrow">AZ EREDETI</span>
-              <h3>Funday 2025</h3>
-              <p>A 2025-ös program, helyek és résztvevők.</p>
+              <span class="eyebrow">Utazás · 2026 · Archív</span>
+              <h3>Úticélválasztás 2026</h3>
+              <p>31 opció, 7 szavazó, lezárt eredmény.</p>
               <span class="open">Megnyitás</span>
             </div>
           </a>
